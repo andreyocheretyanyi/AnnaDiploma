@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AnnaDiploma</string>
+    <string name="map">Map</string>
+    <string name="select_zone">Select Block</string>
+    <string name="about_me">About author</string>
+    <string name="exit">Exit</string>
+    <string name="refactor_database">Edit data</string>
+</resources>

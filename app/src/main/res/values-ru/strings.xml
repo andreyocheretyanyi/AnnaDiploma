@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="map">Карта</string>
+    <string name="select_zone">Выбрать Блок</string>
+    <string name="about_me">Об авторе</string>
+    <string name="exit">Выход</string>
+    <string name="refactor_database">Редактировать базу данных</string>
+</resources>
