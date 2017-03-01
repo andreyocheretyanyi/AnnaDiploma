@@ -25,6 +25,81 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
 
     }
 
+    //    DatabaseProviderImpl dbHelper = new DatabaseProviderImpl(this);
+//    Cursor c = dbHelper.selectBlocks();
+//if(c.moveToFirst()) {
+//        int idIndex = c.getColumnIndex("id");
+//        int nameIndex = c.getColumnIndex("name");
+//
+//        do {
+//        Log.d("!!!!!!",
+//        "ID = " + c.getInt(idIndex) +
+//        ", name = " + c.getString(nameIndex));
+//
+//        } while (c.moveToNext());
+//        }
+//        else {
+//        Log.d("!!!!!!", "0 rows");
+//        c.close();
+//        }
+//        if(!c.isClosed()){
+//        c.close();
+//        }
+//        dbHelper.deleteBlocks();
+//
+//        c = dbHelper.selectBlocks();
+//        if(c.moveToFirst()) {
+//        int idIndex = c.getColumnIndex("id");
+//        int nameIndex = c.getColumnIndex("name");
+//
+//        do {
+//        Log.d("!!!!!!",
+//        "ID = " + c.getInt(idIndex) +
+//        ", name = " + c.getString(nameIndex));
+//
+//        } while (c.moveToNext());
+//        }
+//        else {
+//        Log.d("!!!!!!", "0 rows");
+//        c.close();
+//        }
+//        if(!c.isClosed()){
+//        c.close();
+//        }
+//
+//        //-----------------------------------------------
+//
+//
+//
+//        c = dbHelper.selectRooms();
+//        if(c.moveToFirst()) {
+//        int idIndex = c.getColumnIndex("id");
+//        int waterIndex = c.getColumnIndex("water");
+//        int freeIndex = c.getColumnIndex("free");
+//        int priceIndex = c.getColumnIndex("price");
+//        int block_idIndex = c.getColumnIndex("block_id");
+//
+//        do {
+//        Log.d("!!!!!!",
+//        "ID = " + c.getInt(idIndex) +
+//        ", water = " + c.getString(waterIndex)
+//        +
+//        ", free = " + c.getString(freeIndex)
+//        +
+//        ", price = " + c.getString(priceIndex)
+//        +
+//        ", block_id = " + c.getString(block_idIndex));
+//
+//        } while (c.moveToNext());
+//        }
+//        else {
+//        Log.d("!!!!!!", "0 rows");
+//        c.close();
+//        }
+//        if(!c.isClosed()){
+//        c.close();
+//        }
+
 
     private void initView(){
         map = (LinearLayout) findViewById(R.id.map_line);
@@ -60,11 +135,16 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
                 startActivity(new Intent(this,BlocksListView.class));
                 break;
             case R.id.line_change_database:
-                startActivity(new Intent(this,BlocksListView.class));
+                startActivity(new Intent(this,DatabaseEditActivity.class));
                 break;
             case R.id.exit_line:
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public Context getContextFromView() {
+        return this;
     }
 }

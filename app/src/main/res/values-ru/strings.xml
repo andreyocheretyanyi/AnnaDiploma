@@ -5,4 +5,13 @@
     <string name="about_me">Об авторе</string>
     <string name="exit">Выход</string>
     <string name="refactor_database">Редактировать базу данных</string>
+    <string name="block_name">Название блока</string>
+    <string name="add_block">Добавить блок</string>
+    <string name="map_preview">Просмотр карты</string>
+    <string name="back_btn">Назад</string>
+    <string name="room_detail">Детальная информация о комнате</string>
+    <string name="main_menu">Главное меню</string>
+    <string name="block_details">Детальная информация о блоке</string>
+    <string name="blocks_list">Список блоков</string>
+    <string name="add_room">Добавить комнату</string>
 </resources>

@@ -5,4 +5,13 @@
     <string name="about_me">About author</string>
     <string name="exit">Exit</string>
     <string name="refactor_database">Edit data</string>
+    <string name="block_name">Block name</string>
+    <string name="add_block">Add block</string>
+    <string name="map_preview">Map Preview</string>
+    <string name="back_btn">Back</string>
+    <string name="room_detail">Room details</string>
+    <string name="main_menu">Main menu</string>
+    <string name="block_details">Block detail</string>
+    <string name="blocks_list">Blocks list</string>
+    <string name="add_room">Add room</string>
 </resources>

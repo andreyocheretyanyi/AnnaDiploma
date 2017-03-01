@@ -1,14 +1,19 @@
 package ua.com.anna.borodina.annadiploma.model.dao;
 
 /**
- * Created by admin on 24.02.2017.
+ * Created by Андрей on 21.02.2017.
  */
 
 public class Block {
+    private int id;
     private String name;
 
-    public Block(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -19,4 +24,8 @@ public class Block {
         this.name = name;
     }
 
+    public Block(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

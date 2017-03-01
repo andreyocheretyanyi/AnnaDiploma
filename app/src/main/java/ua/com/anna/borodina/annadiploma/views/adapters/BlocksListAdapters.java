@@ -61,6 +61,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.blockName.setText(myDataSet.get(position).getName());
+        holder.blockNumber.setText((position+1)+".");
 
     }
 
@@ -75,10 +76,12 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
     class ViewHolder extends RecyclerView.ViewHolder{
         View view;
         TextView blockName;
+        TextView blockNumber;
         ViewHolder(View itemView) {
             super(itemView);
             view = itemView;
             blockName = (TextView) view.findViewById(R.id.block_name);
+            blockNumber = (TextView) view.findViewById(R.id.block_number_text_view);
 
         }
     }
