@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import ua.com.anna.borodina.annadiploma.R;
@@ -25,83 +28,29 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
 
     }
 
-    //    DatabaseProviderImpl dbHelper = new DatabaseProviderImpl(this);
-//    Cursor c = dbHelper.selectBlocks();
-//if(c.moveToFirst()) {
-//        int idIndex = c.getColumnIndex("id");
-//        int nameIndex = c.getColumnIndex("name");
-//
-//        do {
-//        Log.d("!!!!!!",
-//        "ID = " + c.getInt(idIndex) +
-//        ", name = " + c.getString(nameIndex));
-//
-//        } while (c.moveToNext());
-//        }
-//        else {
-//        Log.d("!!!!!!", "0 rows");
-//        c.close();
-//        }
-//        if(!c.isClosed()){
-//        c.close();
-//        }
-//        dbHelper.deleteBlocks();
-//
-//        c = dbHelper.selectBlocks();
-//        if(c.moveToFirst()) {
-//        int idIndex = c.getColumnIndex("id");
-//        int nameIndex = c.getColumnIndex("name");
-//
-//        do {
-//        Log.d("!!!!!!",
-//        "ID = " + c.getInt(idIndex) +
-//        ", name = " + c.getString(nameIndex));
-//
-//        } while (c.moveToNext());
-//        }
-//        else {
-//        Log.d("!!!!!!", "0 rows");
-//        c.close();
-//        }
-//        if(!c.isClosed()){
-//        c.close();
-//        }
-//
-//        //-----------------------------------------------
-//
-//
-//
-//        c = dbHelper.selectRooms();
-//        if(c.moveToFirst()) {
-//        int idIndex = c.getColumnIndex("id");
-//        int waterIndex = c.getColumnIndex("water");
-//        int freeIndex = c.getColumnIndex("free");
-//        int priceIndex = c.getColumnIndex("price");
-//        int block_idIndex = c.getColumnIndex("block_id");
-//
-//        do {
-//        Log.d("!!!!!!",
-//        "ID = " + c.getInt(idIndex) +
-//        ", water = " + c.getString(waterIndex)
-//        +
-//        ", free = " + c.getString(freeIndex)
-//        +
-//        ", price = " + c.getString(priceIndex)
-//        +
-//        ", block_id = " + c.getString(block_idIndex));
-//
-//        } while (c.moveToNext());
-//        }
-//        else {
-//        Log.d("!!!!!!", "0 rows");
-//        c.close();
-//        }
-//        if(!c.isClosed()){
-//        c.close();
-//        }
+    private void startAnimatinOnView(final View view, int animationRes){
+        Animation animation = AnimationUtils.loadAnimation(this, animationRes);
+        animation.setDuration(1500);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                    view.setVisibility(View.VISIBLE);
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
+
+            @Override
+            public void onAnimationEnd(Animation animation) { }
+
+        });
+
+        view.startAnimation(animation);
+    }
 
 
     private void initView(){
+        View v = findViewById(R.id.devide_lne);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         map = (LinearLayout) findViewById(R.id.map_line);
         selectBlocks = (LinearLayout) findViewById(R.id.select_line);
         aboutAuthor = (LinearLayout) findViewById(R.id.line_about);
@@ -114,6 +63,13 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
         aboutAuthor.setOnClickListener(this);
         editData.setOnClickListener(this);
         exit.setOnClickListener(this);
+        startAnimatinOnView(map,R.anim.animation_from_left_bottom_corner);
+        startAnimatinOnView(selectBlocks,R.anim.animation_from_right_bottom_corner);
+        startAnimatinOnView(aboutAuthor,R.anim.animation_from_left_bottom_corner);
+        startAnimatinOnView(editData,R.anim.animation_from_right_bottom_corner);
+        startAnimatinOnView(exit,R.anim.animation_from_left_bottom_corner);
+        startAnimatinOnView(v,R.anim.animation_fade_in);
+        startAnimatinOnView(toolbar,R.anim.animation_fade_in);
     }
 
 

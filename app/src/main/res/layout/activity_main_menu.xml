@@ -30,7 +30,9 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <include layout="@layout/item_line"/>
+    <include
+        android:id="@+id/devide_lne"
+        layout="@layout/item_line"/>
 
 <LinearLayout
     android:paddingRight="50dp"
