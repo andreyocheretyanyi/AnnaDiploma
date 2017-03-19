@@ -28,24 +28,6 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
 
     }
 
-    private void startAnimatinOnView(final View view, int animationRes){
-        Animation animation = AnimationUtils.loadAnimation(this, animationRes);
-        animation.setDuration(1500);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                    view.setVisibility(View.VISIBLE);
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {}
-
-            @Override
-            public void onAnimationEnd(Animation animation) { }
-
-        });
-
-        view.startAnimation(animation);
-    }
 
 
     private void initView(){
@@ -63,13 +45,6 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
         aboutAuthor.setOnClickListener(this);
         editData.setOnClickListener(this);
         exit.setOnClickListener(this);
-        startAnimatinOnView(map,R.anim.animation_from_left_bottom_corner);
-        startAnimatinOnView(selectBlocks,R.anim.animation_from_right_bottom_corner);
-        startAnimatinOnView(aboutAuthor,R.anim.animation_from_left_bottom_corner);
-        startAnimatinOnView(editData,R.anim.animation_from_right_bottom_corner);
-        startAnimatinOnView(exit,R.anim.animation_from_left_bottom_corner);
-        startAnimatinOnView(v,R.anim.animation_fade_in);
-        startAnimatinOnView(toolbar,R.anim.animation_fade_in);
     }
 
 

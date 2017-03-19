@@ -24,7 +24,8 @@ class MyDataBaseProvider extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+BLOCKS_TABLE_NAME
                 +"("+"_id"+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                BLOCKS_COLUMN[1]+" TEXT NOT NULL);");
+                BLOCKS_COLUMN[1]+" TEXT NOT NULL," +
+                "UNIQUE("+BLOCKS_COLUMN[1]+"));");
         db.execSQL("create table "+ROOMS_TABLE_NAME+"(" +"_id"+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
         ROOMS_COLUMN[1]+" INTEGER NOT NULL,"+ROOMS_COLUMN[2]+" INTEGER NOT NULL," + ROOMS_COLUMN[3]+ " INTEGER NOT NULL,"+
         ROOMS_COLUMN[4]+" INTEGER NOT NULL, " +

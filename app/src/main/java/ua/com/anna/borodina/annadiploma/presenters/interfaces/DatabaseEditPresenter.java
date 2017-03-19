@@ -1,5 +1,7 @@
 package ua.com.anna.borodina.annadiploma.presenters.interfaces;
 
+import java.util.List;
+
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
@@ -13,6 +15,8 @@ public interface DatabaseEditPresenter extends BasePresenter<IDatabaseEdit> {
 
     void clearAll();
 
-    public void addRoom(String water, String price, String free, String block_id);
+    public void addRoom(Boolean water, String price, Boolean free, String block_id);
+
+    public List<String> getBlockNameArray();
 
 }

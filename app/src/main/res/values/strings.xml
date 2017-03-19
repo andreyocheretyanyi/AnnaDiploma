@@ -14,4 +14,9 @@
     <string name="block_details">Block detail</string>
     <string name="blocks_list">Blocks list</string>
     <string name="add_room">Add room</string>
+    <string name="yest_text">Да</string>
+    <string name="no_text">Нет</string>
+    <string name="string_free_room">Свободна:</string>
+    <string name="string_water_in_room">Наличие воды:</string>
+    <string name="string_price_room">Цена:</string>
 </resources>

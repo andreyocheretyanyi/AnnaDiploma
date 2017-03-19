@@ -18,31 +18,91 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center|start"
+            android:layout_gravity="center"
+            android:hint="@string/string_water_in_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <EditText
-            android:hint="Наличие воды: Да или Нет"
-            android:id="@+id/room_water"
+        <Switch
+            android:id="@+id/switch_water"
+            android:textOn="@string/yest_text"
+            android:textOff="@string/no_text"
+            android:switchMinWidth="56dp"
+            android:showText="true"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <EditText
-            android:hint="Свободна: Да или Нет"
-            android:id="@+id/room_free"
+    </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:hint="Цена"
-            android:id="@+id/room_price"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center|start"
+                android:layout_weight="1"
+                android:hint="@string/string_free_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:id="@+id/switch_free"
+                android:switchMinWidth="56dp"
+                android:showText="true"
+                android:textOn="@string/yest_text"
+                android:textOff="@string/no_text"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:hint="Имя блока к которому принадлежит"
-            android:id="@+id/room_block"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center|start"
+                android:layout_weight="1"
+                android:hint="@string/string_price_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:id="@+id/edit_text_room_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Имя блока в котором находится комната"/>
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/spinner_room_block_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
 
         <Button
             android:text="@string/add_room"
-            android:id="@+id/save_room_btn"
+            android:id="@+id/button_save_room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -57,22 +117,25 @@
 
         <EditText
             android:hint="@string/block_name"
-            android:id="@+id/block_name"
+            android:id="@+id/edit_text_block_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:text="@string/add_block"
-            android:id="@+id/save_block_btn"
+            android:id="@+id/button_add_block"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <Button
+        android:text="delete all"
         android:id="@+id/delete_all"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

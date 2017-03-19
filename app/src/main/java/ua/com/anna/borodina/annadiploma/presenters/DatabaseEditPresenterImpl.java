@@ -3,6 +3,7 @@ package ua.com.anna.borodina.annadiploma.presenters;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
@@ -29,10 +30,21 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
 
     }
 
-    public void addRoom(String water, String price, String free, String block_id) {
+    public void addRoom(Boolean water, String price, Boolean free, String block_id) {
         DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
         dp.addRooms(validate(water,price,free,block_id));
         dp.selectRooms();
+    }
+
+    public List<String> getBlockNameArray(){
+        DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
+        ArrayList<Block> blocks = dp.selectBlocks();
+        ArrayList<String> blocksName = new ArrayList<>();
+        for (Block b: blocks) {
+            blocksName.add(b.getName());
+        }
+
+        return blocksName;
     }
 
     private int getBlockId(String blockName) {
@@ -48,20 +60,13 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         return -1;
     }
 
-    private int validateWaterOrFree(String str){
-        int buff = -1;
-        switch (str){
-            case "Да":
-                buff = 1;
-                break;
-            case "Нет":
-                buff =0;
-                break;
-        }
-        return buff;
+    private int validateWaterOrFree(Boolean bool){
+            if(bool)
+                return 1;
+            else return 0;
     }
 
-    private Room validate(String water,String price, String free, String blockId){
+    private Room validate(Boolean water,String price,Boolean free, String blockId){
         Room room;
         int water_int,price_int,free_int,block_id_int;
         water_int =validateWaterOrFree(water);

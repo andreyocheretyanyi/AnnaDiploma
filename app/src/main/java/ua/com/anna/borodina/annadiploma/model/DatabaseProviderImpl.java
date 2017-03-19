@@ -22,7 +22,7 @@ public class DatabaseProviderImpl {
 
     public DatabaseProviderImpl(Context context){
         cntx = context;
-        dh = new MyDataBaseProvider(cntx,"MARKET",null,1);
+        dh = new MyDataBaseProvider(cntx,"MARKET_PLACE",null,1);
     }
 
 
@@ -57,10 +57,6 @@ public class DatabaseProviderImpl {
             do {
                 Block block = new Block(c.getInt(idIndex), c.getString(nameIndex));
                 arr.add(block);
-                Log.d("!!!!!!",
-                        "ID = " + c.getInt(idIndex) +
-                                ", name = " + c.getString(nameIndex));
-
             } while (c.moveToNext());
         } else {
             Log.d("!!!!!!", "0 rows");
@@ -119,7 +115,9 @@ public class DatabaseProviderImpl {
                 arr.add(room);
                 Log.d("!!!!!!",
                         "ID = " + c.getInt(idIndex) +
-                                ", water = " + c.getString(waterIndex));
+                                ", water = " + c.getString(waterIndex) +
+                                ", block = " + c.getString(block_idIndex));
+
 
             } while (c.moveToNext());
         } else {

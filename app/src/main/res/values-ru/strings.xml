@@ -14,4 +14,6 @@
     <string name="block_details">Детальная информация о блоке</string>
     <string name="blocks_list">Список блоков</string>
     <string name="add_room">Добавить комнату</string>
+    <string name="yest_text">Да</string>
+    <string name="no_text">Нет</string>
 </resources>
