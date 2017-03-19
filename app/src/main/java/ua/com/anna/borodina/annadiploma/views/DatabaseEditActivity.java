@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -38,6 +40,7 @@ public class DatabaseEditActivity extends AppCompatActivity implements IDatabase
         presenter = new DatabaseEditPresenterImpl();
         presenter.onAttachView(this);
         ButterKnife.bind(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("allDevices");
         initViews();
     }
 
@@ -49,18 +52,25 @@ public class DatabaseEditActivity extends AppCompatActivity implements IDatabase
         else {
             presenter.addBlock(str);
             mBlockName.setText("");
+            presenter.sendNotification();
             this.recreate();
         }
     }
 
     @OnClick(R.id.button_save_room)
     public void saveRoomClick(){
-        presenter.addRoom(mWaterSwitch.isChecked(),mPriceEditText.getText().toString(),mFreeSwithc.isChecked(),(String)mBlockListSpinner.getSelectedItem());
+        if(mPriceEditText.getText().toString().equals(""))
+            mPriceEditText.setError("Поле не должно быть пустым");
+        else {
+            presenter.sendNotification();
+            presenter.addRoom(mWaterSwitch.isChecked(), mPriceEditText.getText().toString(), mFreeSwithc.isChecked(), (String) mBlockListSpinner.getSelectedItem());
+        }
     }
 
     @OnClick(R.id.delete_all)
     public void deleteAllClick(){
         presenter.clearAll();
+        presenter.sendNotification();
     }
 
     ArrayAdapter<String> adapter;

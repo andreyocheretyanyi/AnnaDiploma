@@ -19,4 +19,6 @@ public interface DatabaseEditPresenter extends BasePresenter<IDatabaseEdit> {
 
     public List<String> getBlockNameArray();
 
+    public void sendNotification();
+
 }

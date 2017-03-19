@@ -19,4 +19,5 @@
     <string name="string_free_room">Свободна:</string>
     <string name="string_water_in_room">Наличие воды:</string>
     <string name="string_price_room">Цена:</string>
+    <string name="delete_all">Delete all</string>
 </resources>

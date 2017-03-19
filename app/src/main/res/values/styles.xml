@@ -4,8 +4,39 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="CustomToolBarTheme" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="CustomCardView" parent="CardView">
+        <item name="cardElevation">4dp</item>
+        <item name="android:layout_marginEnd" >10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:foreground">@drawable/selector_click_to_menuitem</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="CustomTextView" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/menu_text_color</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/menu_text_color</item>
+        <item name="android:background">@drawable/selector_click_to_menuitem</item>
+    </style>
+
 
 </resources>

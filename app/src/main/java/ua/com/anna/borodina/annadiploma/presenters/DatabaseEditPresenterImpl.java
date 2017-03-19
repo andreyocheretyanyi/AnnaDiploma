@@ -5,9 +5,16 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ua.com.anna.borodina.annadiploma.App;
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
+import ua.com.anna.borodina.annadiploma.model.dao.Notification;
 import ua.com.anna.borodina.annadiploma.model.dao.Room;
+import ua.com.anna.borodina.annadiploma.model.dao.SendMessageRequest;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
@@ -76,6 +83,26 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         room = new Room(0,water_int,free_int,price_int,block_id_int);
         return room;
 
+    }
+
+    public void sendNotification(){
+        SendMessageRequest msg =new SendMessageRequest();
+        Notification notification = new Notification();
+        notification.setTitle("База данных была изменена");
+        notification.setBody("Внимание! База данных была изменена");
+        msg.setNotification(notification);
+        msg.setTo("/topics/allDevices");
+        App.getRetrofitAPI().authRequest(msg).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override

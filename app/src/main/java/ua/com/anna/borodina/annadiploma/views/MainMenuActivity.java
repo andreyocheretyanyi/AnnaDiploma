@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,7 +19,7 @@ import ua.com.anna.borodina.annadiploma.views.interfaces.IMainMenuView;
 public class MainMenuActivity extends AppCompatActivity implements IMainMenuView,View.OnClickListener {
 
     private MainMenuPresenter mainMenuPresenter;
-    private LinearLayout map,selectBlocks,aboutAuthor,editData,exit;
+    private CardView map,selectBlocks,aboutAuthor,editData,exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +34,11 @@ public class MainMenuActivity extends AppCompatActivity implements IMainMenuView
     private void initView(){
         View v = findViewById(R.id.devide_lne);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        map = (LinearLayout) findViewById(R.id.map_line);
-        selectBlocks = (LinearLayout) findViewById(R.id.select_line);
-        aboutAuthor = (LinearLayout) findViewById(R.id.line_about);
-        editData = (LinearLayout) findViewById(R.id.line_change_database);
-        exit = (LinearLayout) findViewById(R.id.exit_line);
+        map = (CardView) findViewById(R.id.map_line);
+        selectBlocks = (CardView) findViewById(R.id.select_line);
+        aboutAuthor = (CardView) findViewById(R.id.line_about);
+        editData = (CardView) findViewById(R.id.line_change_database);
+        exit = (CardView) findViewById(R.id.exit_line);
         mainMenuPresenter = new MainMenuPresenterImpl();
         mainMenuPresenter.onAttachView(this);
         map.setOnClickListener(this);

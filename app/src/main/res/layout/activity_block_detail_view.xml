@@ -9,6 +9,7 @@
               tools:context="ua.com.anna.borodina.annadiploma.views.BlockDetailView">
 
     <android.support.v7.widget.Toolbar
+        style="@style/CustomToolBarTheme"
         android:id="@+id/toolbar"
         app:contentInsetStart="0dp"
         android:layout_width="match_parent"
