@@ -6,9 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_database_edit"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
 
-    tools:context="ua.com.anna.borodina.annadiploma.views.DatabaseEditActivity">
 
     <android.support.v7.widget.Toolbar
         style="@style/CustomToolBarTheme"
@@ -21,23 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:textSize="15sp"
-                android:textAllCaps="false"
-                android:background="@null"
-                android:text="@string/back_btn"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:id="@+id/button_back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
 
             <TextView
                 android:gravity="center"
                 android:layout_centerInParent="true"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
-                android:text="@string/map_preview"
+                android:text="DatabaseEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
 

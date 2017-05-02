@@ -13,7 +13,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import ua.com.anna.borodina.annadiploma.R;
-import ua.com.anna.borodina.annadiploma.views.DatabaseEditActivity;
+import ua.com.anna.borodina.annadiploma.views.AppActivity;
 
 /**
  * Created by Андрей on 11.03.2017.
@@ -36,7 +36,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     //This method is only generating push notification
     //It is same as we did in earlier posts
     private void sendNotification(String messageBody,String ttl) {
-        Intent intent = new Intent(this, DatabaseEditActivity.class);
+        Intent intent = new Intent(this, AppActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);
