@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E97171</color>
-    <color name="colorPrimaryDark">#570505</color>
-    <color name="colorAccent">#679016</color>
+    <color name="colorPrimary">#34788A</color>
+    <color name="colorPrimaryDark">#3E5D94</color>
+    <color name="colorAccent">#369870</color>
 
-
-
-    <color name="colorRedOne">#9A1717</color>
-    <color name="colorRedTwo">#6A2C2C</color>
-    <color name="colorRedThree">#570505	</color>
-    <color name="colorRedFour">#E97171</color>
-    <color name="colorRedFive">#E9AFAF</color>
-
-
-    <color name="colorCyanOne">#0E5C5C</color>
-    <color name="colorCyanTwo">#1A4040</color>
-    <color name="colorCyanThree">#033434</color>
-    <color name="colorCyanFour">#6BDCDC</color>
-    <color name="colorCyanFive">#A5DCDC</color>
-
-    <color name="colorGreenOne">#679016</color>
-    <color name="colorGreenTwo">#506329</color>
-    <color name="colorGreenThree">#385105</color>
-    <color name="colorGreenFour">#BFE770</color>
-    <color name="colorGreenFive">#D4E7AE</color>
+    <color name="colorMain">#34788A</color>
+    <color name="colorSecondA">#3E5D94</color>
+    <color name="colorSecondB">#369870</color>
+    <color name="colorSecondALight">#6494e9</color>
+    <color name="colorSecondBLight">#4ed9a0</color>
+    <color name="colorTint">@android:color/transparent</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-  android:background="@color/colorGreenFour"
+  android:background="@color/colorMain"
   android:visibility="gone"
   android:id="@+id/main_menu_root"
   xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +14,7 @@
     android:clickable="false"
     android:visibility="invisible"
     android:id="@+id/item_menu_1"
-    android:background="@color/colorCyanOne"
+    android:background="@color/colorSecondBLight"
     android:layout_weight="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -61,7 +61,7 @@
     android:clickable="false"
     android:visibility="invisible"
     android:id="@+id/item_menu_2"
-    android:background="@color/colorCyanFive"
+    android:background="@color/colorSecondALight"
     android:layout_weight="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -108,7 +108,7 @@
     android:clickable="false"
     android:visibility="invisible"
     android:id="@+id/item_menu_3"
-    android:background="@color/colorCyanTwo"
+    android:background="@color/colorSecondB"
     android:layout_weight="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -155,7 +155,7 @@
     android:clickable="false"
     android:visibility="invisible"
     android:id="@+id/item_menu_4"
-    android:background="@color/colorCyanThree"
+    android:background="@color/colorSecondA"
     android:layout_weight="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -201,7 +201,7 @@
   <android.support.constraint.ConstraintLayout
     android:clickable="false"
     android:id="@+id/item_menu_5"
-    android:background="@color/colorGreenFour"
+    android:background="@color/colorMain"
     android:layout_weight="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
