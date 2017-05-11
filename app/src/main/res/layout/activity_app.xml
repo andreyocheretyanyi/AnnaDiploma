@@ -14,13 +14,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Toolbar
-
-      android:background="@color/colorMain"
       android:contentInsetStart="0dp"
       app:contentInsetStart="0dp"
       android:layout_width="match_parent"
       android:layout_height="?actionBarSize"
-
+      android:background="@color/color_cyan"
       android:id="@+id/toolbarInMain">
 
       <RelativeLayout

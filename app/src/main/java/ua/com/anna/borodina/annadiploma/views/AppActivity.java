@@ -36,15 +36,15 @@ public class AppActivity extends AppCompatActivity {
   @BindView(R.id.button_open_menu)
   ImageButton buttonOpenMenu;
   @BindView(R.id.item_menu_1)
-  ConstraintLayout menuItemOne;
+  LinearLayout menuItemOne;
   @BindView(R.id.item_menu_2)
-  ConstraintLayout menuItemTwo;
+  LinearLayout menuItemTwo;
   @BindView(R.id.item_menu_3)
-  ConstraintLayout menuItemThree;
+  LinearLayout menuItemThree;
   @BindView(R.id.item_menu_4)
-  ConstraintLayout menuItemFour;
+  LinearLayout menuItemFour;
   @BindView(R.id.item_menu_5)
-  ConstraintLayout menuItemFive;
+  LinearLayout menuItemFive;
   @BindView(R.id.toolbarInMain)
   Toolbar mToolbar;
   @BindViews({R.id.main_menu_root, R.id.item_menu_1, R.id.item_menu_2, R.id.item_menu_3,

@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#3E5D94</color>
     <color name="colorAccent">#369870</color>
 
-    <color name="colorMain">#34788A</color>
-    <color name="colorSecondA">#3E5D94</color>
-    <color name="colorSecondB">#369870</color>
-    <color name="colorSecondALight">#6494e9</color>
-    <color name="colorSecondBLight">#4ed9a0</color>
-    <color name="colorTint">@android:color/transparent</color>
+    <color name="color_gray_dark">#7e7e7e</color>
+    <color name="color_orange_pastel">#ffdaa3</color>
+    <color name="color_orange_pastel_light">#fee6c3</color>
+    <color name="color_azure_mut">#d2e3e4</color>
+    <color name="color_cyan">#aedeff</color>
+
 </resources>
