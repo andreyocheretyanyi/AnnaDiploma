@@ -15,7 +15,7 @@
 
     <style name="textViewInMenu" parent="AppTheme">
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">#282828</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_in_menu</item>
     </style>
