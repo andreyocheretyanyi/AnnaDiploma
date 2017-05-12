@@ -15,6 +15,7 @@ public class App extends Application {
     private Retrofit retrofit;
     @Override
     public void onCreate() {
+      super.onCreate();
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://fcm.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())

@@ -15,7 +15,7 @@ public interface DatabaseEditPresenter extends BasePresenter<IDatabaseEdit> {
 
     void clearAll();
 
-    public void addRoom(Boolean water, String price, Boolean free, String block_id);
+    public void addRoom(Boolean water, String number, String price, Boolean free, String block_id);
 
     public List<String> getBlockNameArray();
 

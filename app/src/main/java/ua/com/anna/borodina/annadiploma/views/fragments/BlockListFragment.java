@@ -41,9 +41,11 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
     mAdapter = new BlocksListAdapters(v.getContext());
     mAdapter.setData(presenter.getData());
     mAdapter.notifyDataSetChanged();
+    mAdapter.bindPresenter(presenter);
     mLayoutManager = new LinearLayoutManager(v.getContext());
     recyclerView.setLayoutManager(mLayoutManager);
     recyclerView.setAdapter(mAdapter);
+
 
   }
 

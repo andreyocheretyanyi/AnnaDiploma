@@ -6,14 +6,24 @@ package ua.com.anna.borodina.annadiploma.model.dao;
 
 public class Room {
 
-    private int id,price,water,block_id,free;
+    private int id,price,water,block_id,free,number;
 
-    public Room(int id, int water, int free, int price, int block_id) {
+    public Room(int id, int number, int water, int free, int price, int block_id) {
+
         this.id = id;
         this.price = price;
         this.water = water;
         this.block_id = block_id;
         this.free = free;
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public int getId() {

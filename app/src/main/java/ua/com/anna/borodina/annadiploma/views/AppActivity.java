@@ -103,6 +103,7 @@ public class AppActivity extends AppCompatActivity {
         hideMenu();
         break;
       case R.id.item_menu_2:
+        setFragmentToContainer(mBlocksListFragment);
         hideMenu();
         break;
       case R.id.item_menu_3:
@@ -110,7 +111,6 @@ public class AppActivity extends AppCompatActivity {
         hideMenu();
         break;
       case R.id.item_menu_4:
-        setFragmentToContainer(mBlocksListFragment);
         hideMenu();
         break;
       case R.id.item_menu_5:

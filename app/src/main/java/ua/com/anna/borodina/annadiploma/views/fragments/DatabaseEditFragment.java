@@ -85,7 +85,7 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
       editTextRoomPrice.setError("Поле не должно быть пустым");
     } else {
       presenter.sendNotification();
-      presenter.addRoom(switchWater.isChecked(), editTextRoomPrice.getText().toString(),
+      presenter.addRoom(switchWater.isChecked(), "1", editTextRoomPrice.getText().toString(),
           switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem());
     }
   }

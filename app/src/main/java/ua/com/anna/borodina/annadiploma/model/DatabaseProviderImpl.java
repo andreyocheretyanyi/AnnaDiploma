@@ -29,6 +29,7 @@ public class DatabaseProviderImpl {
     public void addRooms(Room room){
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("number",room.getNumber());
         contentValues.put("water",room.getWater());
         contentValues.put("free",room.getFree());
         contentValues.put("price",room.getPrice());
@@ -45,6 +46,28 @@ public class DatabaseProviderImpl {
         db.close();
     }
 
+    public ArrayList<Block> selectBlocksFromId(int id){
+        SQLiteDatabase db = dh.getReadableDatabase();
+        ArrayList<Block> arr = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT * FROM blocks WHERE _id = ?;",new String[]{""+id});
+        if (c.moveToFirst()) {
+            int idIndex = c.getColumnIndex("_id");
+            int nameIndex = c.getColumnIndex("name");
+
+            do {
+                Block block = new Block(c.getInt(idIndex), c.getString(nameIndex));
+                arr.add(block);
+            } while (c.moveToNext());
+        } else {
+            Log.d("!!!!!!", "0 rows");
+            c.close();
+        }
+        if (!c.isClosed()) {
+            c.close();
+        }
+        db.close();
+        return arr;
+    }
 
     public ArrayList<Block> selectBlocks(){
         SQLiteDatabase db = dh.getReadableDatabase();
@@ -75,13 +98,14 @@ public class DatabaseProviderImpl {
         Cursor c = db.rawQuery("SELECT * FROM rooms WHERE block_id = ?;",new String[]{""+id});
         if (c.moveToFirst()) {
             int idIndex = c.getColumnIndex("_id");
+            int number_index = c.getColumnIndex("number");
             int waterIndex = c.getColumnIndex("water");
             int freeIndex = c.getColumnIndex("free");
             int priceIndex = c.getColumnIndex("price");
             int block_idIndex = c.getColumnIndex("block_id");
 
             do {
-                Room room = new Room(c.getInt(idIndex), c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
+                Room room = new Room(c.getInt(idIndex),c.getInt(number_index),c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
                 arr.add(room);
                 Log.d("!!!!!!",
                         "ID = " + c.getInt(idIndex) +
@@ -105,13 +129,14 @@ public class DatabaseProviderImpl {
         Cursor c = db.query("rooms",null,null,null,null,null,null);
         if (c.moveToFirst()) {
             int idIndex = c.getColumnIndex("_id");
+            int numberIndex = c.getColumnIndex("number");
             int waterIndex = c.getColumnIndex("water");
             int freeIndex = c.getColumnIndex("free");
             int priceIndex = c.getColumnIndex("price");
             int block_idIndex = c.getColumnIndex("block_id");
 
             do {
-                Room room = new Room(c.getInt(idIndex), c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
+                Room room = new Room(c.getInt(idIndex),c.getInt(numberIndex), c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
                 arr.add(room);
                 Log.d("!!!!!!",
                         "ID = " + c.getInt(idIndex) +

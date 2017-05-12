@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        android:id="@+id/relative_item_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -30,9 +31,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
     </RelativeLayout>
 
+
+    <Button
+      android:text="Список комнат"
+      android:id="@+id/button_detail"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
     <include layout="@layout/item_line"/>
+
+    <include layout="@layout/item_room_list_for_block"/>
+
 
 
 </LinearLayout>

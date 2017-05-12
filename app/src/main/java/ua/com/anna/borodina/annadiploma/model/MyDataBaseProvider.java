@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 class MyDataBaseProvider extends SQLiteOpenHelper {
 
     private final static String ROOMS_TABLE_NAME = "rooms";
-    private final static String[] ROOMS_COLUMN = {"id", "water", "free", "price","block_id"};
+    private final static String[] ROOMS_COLUMN = {"id", "number", "water", "free", "price","block_id"};
     private final static String BLOCKS_TABLE_NAME = "blocks";
     private final static String[] BLOCKS_COLUMN = {"id", "name"};
 
@@ -29,6 +29,7 @@ class MyDataBaseProvider extends SQLiteOpenHelper {
         db.execSQL("create table "+ROOMS_TABLE_NAME+"(" +"_id"+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
         ROOMS_COLUMN[1]+" INTEGER NOT NULL,"+ROOMS_COLUMN[2]+" INTEGER NOT NULL," + ROOMS_COLUMN[3]+ " INTEGER NOT NULL,"+
         ROOMS_COLUMN[4]+" INTEGER NOT NULL, " +
+                ROOMS_COLUMN[5]+" INTEGER NOT NULL, " +
                 "FOREIGN KEY (block_id) REFERENCES blocks(id)" +
                 ");");
     }
