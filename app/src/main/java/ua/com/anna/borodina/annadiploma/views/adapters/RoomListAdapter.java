@@ -5,10 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
@@ -27,7 +32,6 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     this.context = context;
   }
 
-  int position = 0;
   private ArrayList<Room> myDataSet = new ArrayList<>();
 
   public void setData( ArrayList<Room> newData) {
@@ -62,14 +66,52 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
   }
 
   @Override
-  public void onBindViewHolder(ViewHolder holder, int position) {
+  public void onBindViewHolder(final ViewHolder holder, int position) {
+   final int pos = position;
       db = new DatabaseProviderImpl(context);
-      holder.roomBlockName.setText(String.valueOf(db.selectBlocksFromId(myDataSet.get(position).getBlock_id()).get(0).getName()));
-      holder.roomNumber.setText(String.valueOf(myDataSet.get(position).getNumber()));
+      holder.roomNumber.setText(String.valueOf(myDataSet.get(pos).getNumber()));
+      holder.roomPrice.setText(String.valueOf(myDataSet.get(pos).getPrice()));
+      holder.roomFree.setChecked(validateWaterOrFree(myDataSet.get(pos).getFree()));
+      holder.roomWater.setChecked(validateWaterOrFree(myDataSet.get(pos).getWater()));
 
+      holder.changeRoomButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          int id = myDataSet.get(pos).getId();
+          int price = validateOtherData(holder.roomPrice);
+          int number = validateOtherData(holder.roomNumber);
+          if(price != -1 && number != -1) {
+            db.updateRoomsPrice(id, price);
+            db.updateRoomsNumber(id,number);
+            db.updateRoomsFree(id, validateWaterOrFree(holder.roomFree.isChecked()));
+            db.updateRoomsWater(id, validateWaterOrFree(holder.roomWater.isChecked()));
+          }
+        }
+      });
   }
 
+  private boolean validateWaterOrFree(int flag){
+    if(flag == 1){
+      return true;
+    }else return false;
+  }
 
+  private int validateWaterOrFree(Boolean bool){
+    if(bool)
+      return 1;
+    else return 0;
+  }
+
+  private int validateOtherData(EditText editWithData){
+    int data;
+    try {
+      data = Integer.parseInt(editWithData.getText().toString());
+      return data;
+    }catch (Exception e){
+      editWithData.setError("Ошибка ввода данных");
+      return -1;
+    }
+  }
 
   @Override
   public int getItemCount() {
@@ -78,8 +120,11 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
 
 
   class ViewHolder extends RecyclerView.ViewHolder{
-    @BindView(R.id.text_view_room_block_name) TextView roomBlockName;
-    @BindView(R.id.text_view_room_number) TextView roomNumber;
+    @BindView(R.id.button_change_room) Button changeRoomButton;
+    @BindView(R.id.edit_text_room_number) EditText roomNumber;
+    @BindView(R.id.edit_text_price) EditText roomPrice;
+    @BindView(R.id.switch_free) Switch roomFree;
+    @BindView(R.id.switch_water) Switch roomWater;
     ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this,itemView);

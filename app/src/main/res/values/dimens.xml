@@ -3,4 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_size_in_menu">18sp</dimen>
+    <dimen name="text_size_in_block_list_for_rooms">15sp</dimen>
 </resources>

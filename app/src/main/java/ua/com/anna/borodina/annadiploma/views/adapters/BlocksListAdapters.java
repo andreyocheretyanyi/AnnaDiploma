@@ -73,7 +73,8 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+       final int pos = position;
         holder.blockName.setText(myDataSet.get(position).getName());
         holder.blockNumber.setText((position+1)+".");
       holder.buttonListDetail.setOnClickListener(new OnClickListener() {
@@ -81,7 +82,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         public void onClick(View v) {
           if(!holder.isOpen){
             holder.isOpen = true;
-            holder.roomListAdapter.setData(presenter.getRoomFromBlockId(myDataSet.get(position).getId()));
+            holder.roomListAdapter.setData(presenter.getRoomFromBlockId(myDataSet.get(pos).getId()));
             holder.roomListAdapter.notifyDataSetChanged();
             holder.roomList.setVisibility(View.VISIBLE);
           }
