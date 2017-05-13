@@ -7,3 +7,10 @@
 /build
 /captures
 .externalNativeBuild
+/app/
+.idea/compiler.xml
+.idea/copyright/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+app/google-services.json
