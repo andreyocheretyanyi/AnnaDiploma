@@ -3,6 +3,7 @@ package ua.com.anna.borodina.annadiploma.views.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
   private BlocksListAdapters mAdapter;
   private BlockListPresenter presenter;
   private LinearLayoutManager mLayoutManager;
+  private AlertDialog mDialogWithMap;
 
   @Nullable
   @Override
@@ -30,6 +32,7 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
       @Nullable Bundle savedInstanceState) {
     View v = inflater.inflate(R.layout.fragment_blocks_list_view,container,false);
     initViews(v);
+    createDialog(inflater);
     return v;
 
   }
@@ -45,8 +48,20 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
     mLayoutManager = new LinearLayoutManager(v.getContext());
     recyclerView.setLayoutManager(mLayoutManager);
     recyclerView.setAdapter(mAdapter);
+  }
 
+  private void createDialog(LayoutInflater inflater){
 
+    if(mDialogWithMap == null){
+      AlertDialog.Builder builder = new AlertDialog.Builder(getContextFromView());
+      View dialogView = inflater.inflate(R.layout.dialog_with_map,null);
+      builder.setView(dialogView);
+      mDialogWithMap = builder.create();
+    }
+  }
+
+  private void showDialog(){
+    mDialogWithMap.show();
   }
 
   @Override

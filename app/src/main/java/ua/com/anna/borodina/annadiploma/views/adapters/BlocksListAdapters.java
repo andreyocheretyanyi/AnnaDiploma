@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,12 +13,11 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import java.util.ArrayList;
 
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
-import ua.com.anna.borodina.annadiploma.model.dao.Room;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.BlockListPresenter;
 
 /**
@@ -68,7 +66,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
 
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_blocks_list, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_blocks, parent, false);
         return new ViewHolder(v);
     }
 
