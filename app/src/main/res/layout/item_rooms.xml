@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <LinearLayout
+    android:padding="7dp"
     android:id="@+id/information_layout"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -62,16 +65,18 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <Switch
+
+    <android.support.v7.widget.SwitchCompat
+        style="@style/CustomSwitchColor"
         android:id="@+id/switch_free"
-        android:textOn="@string/yest_text"
-        android:textOff="@string/no_text"
-        android:switchMinWidth="56dp"
-        android:showText="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        app:showText="true"
+        app:switchMinWidth="46dp"
+        android:textOff="@string/no_text"
+        android:textOn="@string/yest_text" />
   </LinearLayout>
 
   <LinearLayout
@@ -86,12 +91,13 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <Switch
+    <android.support.v7.widget.SwitchCompat
+        style="@style/CustomSwitchColor"
         android:id="@+id/switch_water"
+        app:showText="true"
+        app:switchMinWidth="46dp"
         android:textOn="@string/yest_text"
         android:textOff="@string/no_text"
-        android:switchMinWidth="56dp"
-        android:showText="true"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:layout_width="wrap_content"
@@ -100,10 +106,13 @@
 </LinearLayout>
 
   <Button
+      android:layout_margin="7dp"
+      style="@style/CustomButton"
       android:textSize="@dimen/text_size_in_block_list_for_rooms"
       android:id="@+id/button_change_room"
       android:layout_below="@id/information_layout"
-      android:text="Измнить"
+      android:text="Изменить"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+      android:layout_height="wrap_content"
+      />
   </RelativeLayout>

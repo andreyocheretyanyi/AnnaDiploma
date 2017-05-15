@@ -1,51 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:background="@drawable/item_gradient_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_database_edit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_database_edit"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <android.support.v7.widget.Toolbar
-        style="@style/CustomToolBarTheme"
-        android:id="@+id/toolbar"
-        app:contentInsetStart="0dp"
+    <android.support.v7.widget.CardView
+        style="@style/CustomCardView"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
 
             <TextView
+                style="@style/CustomTextView"
                 android:gravity="center"
-                android:layout_centerInParent="true"
-                android:textColor="@android:color/background_dark"
-                android:textSize="20sp"
-                android:text="DatabaseEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:text="@string/add_new_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/CustomTextView"
+                    android:gravity="center|start"
+                    android:layout_weight="1"
+                    android:text="@string/block_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+                <EditText
+                    android:layout_weight="1"
+                    android:hint="@string/block_name"
+                    android:id="@+id/edit_text_block_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-    <RelativeLayout
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:paddingBottom="5dp"
+            <Button
+                style="@style/CustomButton"
+                android:text="@string/add_block"
+                android:id="@+id/button_add_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+    <android.support.v7.widget.CardView
+        style="@style/CustomCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_alignParentTop="true"
+        android:padding="10dp"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/CustomTextView"
+            android:gravity="center"
+            android:text="@string/string_add_new_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,12 +97,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <Switch
+        <android.support.v7.widget.SwitchCompat
+            style="@style/CustomSwitchColor"
             android:id="@+id/switch_water"
             android:textOn="@string/yest_text"
             android:textOff="@string/no_text"
-            android:switchMinWidth="56dp"
-            android:showText="true"
+            app:switchMinWidth="46dp"
+            app:showText="true"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -83,10 +121,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <Switch
+            <android.support.v7.widget.SwitchCompat
+                style="@style/CustomSwitchColor"
                 android:id="@+id/switch_free"
-                android:switchMinWidth="56dp"
-                android:showText="true"
+                app:switchMinWidth="46dp"
+                app:showText="true"
                 android:textOn="@string/yest_text"
                 android:textOff="@string/no_text"
                 android:layout_weight="1"
@@ -115,6 +154,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/CustomTextView"
+                android:gravity="center|start"
+                android:layout_weight="1"
+                android:text="@string/string_room_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:inputType="number"
+                android:layout_weight="1"
+                android:id="@+id/edit_text_room_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,7 +185,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Имя блока в котором находится комната"
+                android:text="@string/block_name_for_room"
                 android:id="@+id/textView2"/>
 
             <Spinner
@@ -148,39 +206,28 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
+    <android.support.v7.widget.CardView
+        style="@style/CustomCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
-        <EditText
-            android:hint="@string/block_name"
-            android:id="@+id/edit_text_block_name"
+        <LinearLayout
+            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
 
-        <Button
-            style="@style/CustomButton"
-            android:text="@string/add_block"
-            android:id="@+id/button_add_block"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/delete_all"
+                style="@style/CustomButton"
+                android:text="@string/delete_all"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <Button
-        style="@style/CustomButton"
-        android:text="@string/delete_all"
-        android:id="@+id/delete_all"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    </RelativeLayout>
+</LinearLayout>
+</ScrollView>
 
 </LinearLayout>

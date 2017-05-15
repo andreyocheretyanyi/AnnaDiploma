@@ -16,5 +16,14 @@
     <string name="add_room">Добавить комнату</string>
     <string name="yest_text">Да</string>
     <string name="no_text">Нет</string>
-    <string name="delete_all">Delete all</string>
+    <string name="string_free_room">Свободна:</string>
+    <string name="string_water_in_room">Наличие воды:</string>
+    <string name="string_price_room">Цена:</string>
+    <string name="delete_all">Удалить все</string>
+    <string name="string_room_number">Номер:</string>
+    <string name="block_name_for_room">Имя блока</string>
+    <string name="add_new_block">Добавить новый блок</string>
+    <string name="string_add_new_room">Добавить новую комнату</string>
+    <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
+
 </resources>

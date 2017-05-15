@@ -2,6 +2,7 @@ package ua.com.anna.borodina.annadiploma.views.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,8 +124,10 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     @BindView(R.id.button_change_room) Button changeRoomButton;
     @BindView(R.id.edit_text_room_number) EditText roomNumber;
     @BindView(R.id.edit_text_price) EditText roomPrice;
-    @BindView(R.id.switch_free) Switch roomFree;
-    @BindView(R.id.switch_water) Switch roomWater;
+    @BindView(R.id.switch_free)
+    SwitchCompat roomFree;
+    @BindView(R.id.switch_water)
+    SwitchCompat roomWater;
     ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this,itemView);

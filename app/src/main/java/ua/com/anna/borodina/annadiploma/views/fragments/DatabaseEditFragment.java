@@ -3,6 +3,7 @@ package ua.com.anna.borodina.annadiploma.views.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +31,10 @@ import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit {
 
 
-  @BindView(R.id.toolbar)
-  Toolbar toolbar;
   @BindView(R.id.switch_water)
-  Switch switchWater;
+  SwitchCompat switchWater;
   @BindView(R.id.switch_free)
-  Switch switchFree;
+  SwitchCompat switchFree;
   @BindView(R.id.edit_text_room_price)
   EditText editTextRoomPrice;
   @BindView(R.id.spinner_room_block_list)
@@ -50,6 +49,8 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
   Button deleteAll;
   @BindView(R.id.activity_database_edit)
   LinearLayout activityDatabaseEdit;
+  @BindView(R.id.edit_text_room_number)
+  EditText mRoomNumber;
   Unbinder unbinder;
   private DatabaseEditPresenter presenter;
 
@@ -71,24 +72,33 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
     String str = editTextBlockName.getText().toString();
     if (str.equals("")) {
       editTextBlockName.setError("Поле не должно быть пустым");
-    } else {
-      presenter.addBlock(str);
-      editTextBlockName.setText("");
-      presenter.sendNotification();
-
+      return;
     }
+
+    presenter.addBlock(str);
+    editTextBlockName.setText("");
+    presenter.sendNotification();
+    adapter.notifyDataSetChanged();
+
+
   }
 
   @OnClick(R.id.button_save_room)
   public void saveRoomClick() {
-    if (editTextRoomPrice.getText().toString().equals("")) {
-      editTextRoomPrice.setError("Поле не должно быть пустым");
-    } else {
-      presenter.sendNotification();
-      presenter.addRoom(switchWater.isChecked(), "1", editTextRoomPrice.getText().toString(),
-          switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem());
+    if (editTextRoomPrice.getText().toString().equals("") ) {
+      editTextRoomPrice.setError(getString(R.string.need_not_a_clear_field));
+      return;
     }
-  }
+    if(mRoomNumber.getText().toString().equals("")){
+      mRoomNumber.setError(getString(R.string.need_not_a_clear_field));
+      return;
+    }
+
+
+      presenter.addRoom(switchWater.isChecked(), mRoomNumber.getText().toString(), editTextRoomPrice.getText().toString(),
+          switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem());
+      presenter.sendNotification();
+    }
 
   @OnClick(R.id.delete_all)
   public void deleteAllClick() {

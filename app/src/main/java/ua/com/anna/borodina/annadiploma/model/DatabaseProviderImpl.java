@@ -168,13 +168,14 @@ public class DatabaseProviderImpl {
 
     public void deleteRooms(){
         SQLiteDatabase db = dh.getWritableDatabase();
-        db.delete("rooms",null,null);
+        db.delete(ROOMS_TABLE_NAME,null,null);
         db.close();}
 
     public void deleteBlocks(){
         SQLiteDatabase db = dh.getWritableDatabase();
-        db.delete("blocks",null,null);
+        db.delete(BLOCK_TABLE_NAME,null,null);
         db.close();
+        deleteRooms();
     }
 
     public void updateRoomsNumber(int id,int water){
@@ -216,5 +217,24 @@ public class DatabaseProviderImpl {
         cv.put(NAME_COLUMN_IN_BLOCK,name);
         db.update(BLOCK_TABLE_NAME,cv,"_id = ?",new String[]{String.valueOf(id)});
         db.close();
+    }
+
+    public void deleteAllRoomsInBloc(int block_id){
+        SQLiteDatabase db = dh.getWritableDatabase();
+        db.delete(ROOMS_TABLE_NAME,BLOCK_ID_IN_ROOMS + " = ?",new String[]{String.valueOf(block_id)});
+        db.close();
+    }
+
+    public void deleteOneRoomFromId(int id){
+        SQLiteDatabase db = dh.getWritableDatabase();
+        db.delete(ROOMS_TABLE_NAME,"_id" + " = ?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void deleteOneBlockFromId(int id){
+        SQLiteDatabase db = dh.getWritableDatabase();
+        db.delete(BLOCK_TABLE_NAME,"_id = ?",new String[]{String.valueOf(id)});
+        db.close();
+        deleteAllRoomsInBloc(id);
     }
 }

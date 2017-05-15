@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -75,6 +76,8 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
        final int pos = position;
         holder.blockName.setText(myDataSet.get(position).getName());
         holder.blockNumber.setText((position+1)+".");
+
+
       holder.buttonListDetail.setOnClickListener(new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -83,6 +86,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
             holder.roomListAdapter.setData(presenter.getRoomFromBlockId(myDataSet.get(pos).getId()));
             holder.roomListAdapter.notifyDataSetChanged();
             holder.roomList.setVisibility(View.VISIBLE);
+
           }
           else {
             holder.isOpen = false;
@@ -99,7 +103,6 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         return myDataSet.size();
     }
 
-
     class ViewHolder extends RecyclerView.ViewHolder{
        private RoomListAdapter roomListAdapter;
        private LayoutManager lm;
@@ -108,7 +111,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         @BindView(R.id.block_number_text_view)
         TextView blockNumber;
         @BindView(R.id.recycler_room_list)
-        RecyclerView roomList;
+        public RecyclerView roomList;
       @BindView(R.id.button_detail)
       Button buttonListDetail;
         boolean isOpen = false;
@@ -121,7 +124,6 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
             lm = new LinearLayoutManager(itemView.getContext());
             roomList.setAdapter(roomListAdapter);
             roomList.setLayoutManager(lm);
-
         }
 
     }

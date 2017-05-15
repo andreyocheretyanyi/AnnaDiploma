@@ -24,6 +24,10 @@ public class MapFragment extends BaseFragment implements IMapView {
     View v = inflater.inflate(R.layout.fragment_map_view,container,false);
     PDFView pdfView = (PDFView) v.findViewById(R.id.pdfView);
     pdfView.fromAsset("map.pdf").load();
+    pdfView.setMaxZoom(20);
+    pdfView.setMidZoom(10);
+    pdfView.setMinZoom(1);
+    pdfView.zoomTo(1);
     return v;
   }
 

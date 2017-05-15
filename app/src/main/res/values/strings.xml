@@ -5,7 +5,7 @@
   <string name="about_me">About author</string>
   <string name="exit">Exit</string>
   <string name="refactor_database">Edit data</string>
-  <string name="block_name">Block name</string>
+  <string name="block_name">Block name:</string>
   <string name="add_block">Add block</string>
   <string name="map_preview">Map Preview</string>
   <string name="back_btn">Back</string>
@@ -14,10 +14,15 @@
   <string name="block_details">Block detail</string>
   <string name="blocks_list">Blocks list</string>
   <string name="add_room">Add room</string>
-  <string name="yest_text">Да</string>
-  <string name="no_text">Нет</string>
-  <string name="string_free_room">Свободна:</string>
-  <string name="string_water_in_room">Наличие воды:</string>
-  <string name="string_price_room">Цена:</string>
+  <string name="yest_text">Yes</string>
+  <string name="no_text">No</string>
+  <string name="string_free_room">Is Free:</string>
+  <string name="string_water_in_room">Water in room:</string>
+  <string name="string_price_room">Price:</string>
   <string name="delete_all">Delete all</string>
+    <string name="string_room_number">Number:</string>
+  <string name="block_name_for_room">Room`s block name</string>
+  <string name="add_new_block">Add a new block</string>
+  <string name="string_add_new_room">Add a new room</string>
+  <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
 </resources>

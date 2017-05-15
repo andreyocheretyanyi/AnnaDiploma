@@ -7,37 +7,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        style="@style/CustomToolBarTheme"
-        android:id="@+id/toolbar"
-        app:contentInsetStart="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:textColor="@android:color/background_dark"
-                android:textSize="20sp"
-                android:text="@string/map_preview"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-
-
-
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-    <include
-        layout="@layout/item_line"/>
 
 <com.github.barteksc.pdfviewer.PDFView
+    android:background="@drawable/item_gradient_background"
     android:id="@+id/pdfView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-
 
 </LinearLayout>
