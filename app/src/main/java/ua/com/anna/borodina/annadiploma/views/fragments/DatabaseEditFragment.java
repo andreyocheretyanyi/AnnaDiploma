@@ -19,6 +19,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.presenters.DatabaseEditPresenterImpl;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
@@ -78,6 +82,7 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
     presenter.addBlock(str);
     editTextBlockName.setText("");
     presenter.sendNotification();
+    changeData();
     adapter.notifyDataSetChanged();
 
 
@@ -104,13 +109,23 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
   public void deleteAllClick() {
     presenter.clearAll();
     presenter.sendNotification();
+    changeData();
+    adapter.notifyDataSetChanged();
   }
 
   ArrayAdapter<String> adapter;
+  List<String> list = new ArrayList<>();
+
+
+  private void changeData(){
+    list.clear();
+    list.addAll(presenter.getBlockNameArray());
+  }
 
   private void initViews(View view) {
+    changeData();
     adapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_spinner_item,
-        presenter.getBlockNameArray());
+        list);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     spinnerRoomBlockList.setAdapter(adapter);
   }

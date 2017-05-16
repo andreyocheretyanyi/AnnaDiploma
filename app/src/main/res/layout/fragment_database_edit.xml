@@ -213,11 +213,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:orientation="vertical"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/CustomTextView"
+                    android:gravity="center|start"
+                    android:layout_weight="1"
+                    android:text="Block: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <Spinner
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:id="@+id/spinner_block_list_for_detele"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/CustomTextView"
+                    android:gravity="center|start"
+                    android:layout_weight="1"
+                    android:text="Room: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <Spinner
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:id="@+id/spinner_room_list_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
             <Button
+                android:layout_marginTop="4dp"
+                style="@style/CustomButton"
+                android:text="Delete one room in block"
+                android:id="@+id/button_delete_one_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginTop="4dp"
+                style="@style/CustomButton"
+                android:text="Delete one block"
+                android:id="@+id/button_delete_one_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginTop="4dp"
+                style="@style/CustomButton"
+                android:text="Delete all rooms in block"
+                android:id="@+id/button_delete_all_rooms_in_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginTop="4dp"
                 android:id="@+id/delete_all"
                 style="@style/CustomButton"
                 android:text="@string/delete_all"
