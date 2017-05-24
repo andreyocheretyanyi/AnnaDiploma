@@ -4,9 +4,7 @@ import ua.com.anna.borodina.annadiploma.presenters.interfaces.MapViewPresenter;
 import ua.com.anna.borodina.annadiploma.views.interfaces.BaseView;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IMapView;
 
-/**
- * Created by admin on 24.02.2017.
- */
+
 
 public class MapViewPresenterImpl implements MapViewPresenter {
 

@@ -4,9 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by Андрей on 19.02.2017.
- */
 
 class MyDataBaseProvider extends SQLiteOpenHelper {
 

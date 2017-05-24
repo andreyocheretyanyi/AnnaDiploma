@@ -21,9 +21,7 @@ import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.BlockListPresenter;
 
-/**
- * Created by admin on 24.02.2017.
- */
+
 
 public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.ViewHolder> {
 

@@ -14,9 +14,7 @@ import butterknife.ButterKnife;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.views.fragments.MapFragment;
 
-/**
- * Created by User on 15.05.2017.
- */
+
 
 public class DialogWithMap extends DialogFragment {
 

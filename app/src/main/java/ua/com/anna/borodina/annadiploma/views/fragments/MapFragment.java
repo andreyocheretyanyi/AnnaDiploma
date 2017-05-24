@@ -11,9 +11,6 @@ import com.github.barteksc.pdfviewer.PDFView;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IMapView;
 
-/**
- * Created by Андрей on 01.05.2017.
- */
 
 public class MapFragment extends BaseFragment implements IMapView {
 

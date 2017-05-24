@@ -1,8 +1,6 @@
 package ua.com.anna.borodina.annadiploma.model.dao;
 
-/**
- * Created by Андрей on 21.02.2017.
- */
+
 
 public class Block {
     private int id;

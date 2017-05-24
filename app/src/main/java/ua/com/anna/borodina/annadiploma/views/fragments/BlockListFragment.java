@@ -25,9 +25,7 @@ import ua.com.anna.borodina.annadiploma.views.adapters.BlocksListAdapters;
 import ua.com.anna.borodina.annadiploma.views.dialogs.DialogWithMap;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IBlockListVIew;
 
-/**
- * Created by Андрей on 01.05.2017.
- */
+
 
 public class BlockListFragment extends BaseFragment implements IBlockListVIew {
   private RecyclerView recyclerView;

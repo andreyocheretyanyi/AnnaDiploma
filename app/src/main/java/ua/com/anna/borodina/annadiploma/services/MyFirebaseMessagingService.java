@@ -15,9 +15,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.views.AppActivity;
 
-/**
- * Created by Андрей on 11.03.2017.
- */
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";

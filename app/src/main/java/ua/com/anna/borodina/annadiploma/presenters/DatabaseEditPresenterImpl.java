@@ -18,9 +18,7 @@ import ua.com.anna.borodina.annadiploma.model.dao.SendMessageRequest;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
-/**
- * Created by Андрей on 26.02.2017.
- */
+
 
 public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
 

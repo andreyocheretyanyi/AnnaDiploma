@@ -28,9 +28,6 @@ import ua.com.anna.borodina.annadiploma.presenters.DatabaseEditPresenterImpl;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
-/**
- * Created by Андрей on 01.05.2017.
- */
 
 public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit {
 

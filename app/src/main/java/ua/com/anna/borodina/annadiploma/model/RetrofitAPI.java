@@ -7,9 +7,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import ua.com.anna.borodina.annadiploma.model.dao.SendMessageRequest;
 
-/**
- * Created by Андрей on 11.03.2017.
- */
 
 public interface RetrofitAPI {
     @Headers({"Content-type: application/json",
