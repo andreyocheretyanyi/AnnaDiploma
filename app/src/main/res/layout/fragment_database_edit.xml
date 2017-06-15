@@ -7,296 +7,238 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.CardView
-        style="@style/CustomCardView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:padding="10dp"
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                style="@style/CustomTextView"
-                android:gravity="center"
-                android:text="@string/add_new_block"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    style="@style/CustomTextView"
-                    android:gravity="center|start"
-                    android:layout_weight="1"
-                    android:text="@string/block_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <EditText
-                    android:layout_weight="1"
-                    android:hint="@string/block_name"
-                    android:id="@+id/edit_text_block_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <Button
-                style="@style/CustomButton"
-                android:text="@string/add_block"
-                android:id="@+id/button_add_block"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-
-
-    <android.support.v7.widget.CardView
-        style="@style/CustomCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:padding="10dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            style="@style/CustomTextView"
-            android:gravity="center"
-            android:text="@string/string_add_new_room"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            style="@style/CustomTextView"
-            android:layout_weight="1"
-            android:gravity="center|start"
-            android:layout_gravity="center"
-            android:text="@string/string_water_in_room"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <android.support.v7.widget.SwitchCompat
-            style="@style/CustomSwitchColor"
-            android:id="@+id/switch_water"
-            android:textOn="@string/yest_text"
-            android:textOff="@string/no_text"
-            app:switchMinWidth="46dp"
-            app:showText="true"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                style="@style/CustomTextView"
-                android:gravity="center|start"
-                android:layout_weight="1"
-                android:text="@string/string_free_room"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.SwitchCompat
-                style="@style/CustomSwitchColor"
-                android:id="@+id/switch_free"
-                app:switchMinWidth="46dp"
-                app:showText="true"
-                android:textOn="@string/yest_text"
-                android:textOff="@string/no_text"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                style="@style/CustomTextView"
-                android:gravity="center|start"
-                android:layout_weight="1"
-                android:text="@string/string_price_room"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:inputType="number"
-                android:layout_weight="1"
-                android:id="@+id/edit_text_room_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                style="@style/CustomTextView"
-                android:gravity="center|start"
-                android:layout_weight="1"
-                android:text="@string/string_room_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:inputType="number"
-                android:layout_weight="1"
-                android:id="@+id/edit_text_room_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/CustomTextView"
-                android:gravity="center|start"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/block_name_for_room"
-                android:id="@+id/textView2"/>
-
-            <Spinner
-                android:gravity="center"
-                android:layout_weight="3"
-                android:id="@+id/spinner_room_block_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-
-
-        <Button
-            android:layout_marginTop="10dp"
-            style="@style/CustomButton"
-            android:text="@string/add_room"
-            android:id="@+id/button_save_room"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        style="@style/CustomCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:orientation="horizontal"
+            <android.support.v7.widget.CardView
+                style="@style/CustomCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/CustomTextView"
-                    android:gravity="center|start"
-                    android:layout_weight="1"
-                    android:text="Block: "
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-                <Spinner
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:id="@+id/spinner_block_list_for_detele"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal"
+                    <TextView
+                        style="@style/CustomTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/add_new_block" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/block_name" />
+
+                        <EditText
+                            android:id="@+id/edit_text_block_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/block_name" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button_add_block"
+                        style="@style/CustomButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_block" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                style="@style/CustomCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/CustomTextView"
-                    android:gravity="center|start"
-                    android:layout_weight="1"
-                    android:text="Room: "
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-                <Spinner
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:id="@+id/spinner_room_list_delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            </LinearLayout>
+                    <TextView
+                        style="@style/CustomTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/string_add_new_room" />
 
-            <Button
-                android:layout_marginTop="4dp"
-                style="@style/CustomButton"
-                android:text="Delete one room in block"
-                android:id="@+id/button_delete_one_room"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/string_water_in_room" />
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/switch_water"
+                            style="@style/CustomSwitchColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textOff="@string/no_text"
+                            android:textOn="@string/yest_text"
+                            app:showText="true"
+                            app:switchMinWidth="46dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/string_free_room" />
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/switch_free"
+                            style="@style/CustomSwitchColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textOff="@string/no_text"
+                            android:textOn="@string/yest_text"
+                            app:showText="true"
+                            app:switchMinWidth="46dp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/string_price_room" />
+
+                        <EditText
+                            android:id="@+id/edit_text_room_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/string_room_number" />
+
+                        <EditText
+                            android:id="@+id/edit_text_room_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            style="@style/CustomTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center|start"
+                            android:text="@string/block_name_for_room" />
+
+                        <Spinner
+                            android:id="@+id/spinner_room_block_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/button_save_room"
+                        style="@style/CustomButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/add_room" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                style="@style/CustomCardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:layout_marginTop="4dp"
-                style="@style/CustomButton"
-                android:text="Delete one block"
-                android:id="@+id/button_delete_one_block"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            <Button
-                android:layout_marginTop="4dp"
-                style="@style/CustomButton"
-                android:text="Delete all rooms in block"
-                android:id="@+id/button_delete_all_rooms_in_block"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
-            <Button
-                android:layout_marginTop="4dp"
-                android:id="@+id/delete_all"
-                style="@style/CustomButton"
-                android:text="@string/delete_all"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                    <Button
+                        android:id="@+id/delete_all"
+                        style="@style/CustomButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/delete_all" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
-</ScrollView>
+    </ScrollView>
 
 </LinearLayout>

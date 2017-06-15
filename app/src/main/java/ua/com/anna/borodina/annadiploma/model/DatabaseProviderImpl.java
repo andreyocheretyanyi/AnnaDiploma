@@ -20,10 +20,10 @@ public class DatabaseProviderImpl {
     public static final String NUMBER_COLUMN = "number";
     public static final String FREE_COLUMN = "free";
     public static final String PRICE_COLUMN = "price";
-    public static final String BLOCK_ID_IN_ROOMS = "block_id";
     public static final String ROOMS_TABLE_NAME= "rooms";
     public static final String BLOCK_TABLE_NAME = "blocks";
     public static final String NAME_COLUMN_IN_BLOCK = "name";
+    public static final String BLOCK_ID_IN_ROOMS = "block_id";
 
 
     public DatabaseProviderImpl(Context context){

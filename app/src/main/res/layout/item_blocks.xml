@@ -37,6 +37,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+        <Button
+            android:padding="7dp"
+            style="@style/CustomButton"
+            android:textSize="@dimen/text_size_in_block_list_for_rooms"
+            android:text="Удалить блок"
+            android:id="@+id/button_delete_block"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
     </RelativeLayout>
 

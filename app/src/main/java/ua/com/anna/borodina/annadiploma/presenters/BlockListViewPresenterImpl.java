@@ -27,6 +27,8 @@ public class BlockListViewPresenterImpl implements BlockListPresenter {
 
     }
 
+
+
     @Override
     public ArrayList<Block> getData() {
         DatabaseProviderImpl provider = new DatabaseProviderImpl(view.getContextFromView());
@@ -37,4 +39,11 @@ public class BlockListViewPresenterImpl implements BlockListPresenter {
         DatabaseProviderImpl provider = new DatabaseProviderImpl(view.getContextFromView());
         return provider.selectRoomsWihtBlockId(id);
     }
+
+    @Override
+    public void deleteBlock(int id) {
+        DatabaseProviderImpl provider = new DatabaseProviderImpl(view.getContextFromView());
+        provider.deleteOneBlockFromId(id);
+    }
+
 }

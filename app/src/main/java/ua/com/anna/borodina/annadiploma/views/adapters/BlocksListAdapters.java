@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -48,9 +49,11 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         notifyDataSetChanged();
     }
 
-    public void removeItem(Block obj) {
-        myDataSet.remove(obj);
-        notifyDataSetChanged();
+    public void removeItem(int pos) {
+        presenter.deleteBlock(myDataSet.get(pos).getId());
+        myDataSet.remove(pos);
+        notifyItemRemoved(pos);
+        notifyItemRangeChanged(pos, myDataSet.size());
     }
 
     public void clear() {
@@ -101,13 +104,15 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         return myDataSet.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements OnClickListener{
        private RoomListAdapter roomListAdapter;
        private LayoutManager lm;
         @BindView(R.id.block_name)
         TextView blockName;
         @BindView(R.id.block_number_text_view)
         TextView blockNumber;
+        @BindView(R.id.button_delete_block)
+        Button deleteButton;
         @BindView(R.id.recycler_room_list)
         public RecyclerView roomList;
       @BindView(R.id.button_detail)
@@ -122,7 +127,14 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
             lm = new LinearLayoutManager(itemView.getContext());
             roomList.setAdapter(roomListAdapter);
             roomList.setLayoutManager(lm);
+            deleteButton.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == deleteButton.getId()){
+                removeItem(getAdapterPosition());
+            }
+        }
     }
 }

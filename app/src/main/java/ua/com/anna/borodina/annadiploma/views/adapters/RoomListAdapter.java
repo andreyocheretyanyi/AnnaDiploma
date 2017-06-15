@@ -43,9 +43,11 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     notifyDataSetChanged();
   }
 
-  public void removeItem(Room obj) {
-    myDataSet.remove(obj);
-    notifyDataSetChanged();
+  public void removeItem(int pos) {
+    db.deleteOneRoomFromId(myDataSet.get(pos).getId());
+    myDataSet.remove(pos);
+    notifyItemRemoved(pos);
+    notifyItemRangeChanged(pos, myDataSet.size());
   }
 
   public void clear() {
@@ -118,7 +120,7 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
   }
 
 
-  class ViewHolder extends RecyclerView.ViewHolder{
+  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     @BindView(R.id.button_change_room) Button changeRoomButton;
     @BindView(R.id.edit_text_room_number) EditText roomNumber;
     @BindView(R.id.edit_text_price) EditText roomPrice;
@@ -126,10 +128,21 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     SwitchCompat roomFree;
     @BindView(R.id.switch_water)
     SwitchCompat roomWater;
+    @BindView(R.id.button_delete_room)
+    Button deleteRoom;
+
     ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this,itemView);
+      deleteRoom.setOnClickListener(this);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+      if(v.getId() == deleteRoom.getId()){
+        removeItem(getAdapterPosition());
+      }
     }
   }
 }

@@ -105,14 +105,34 @@
   </LinearLayout>
 </LinearLayout>
 
+  <LinearLayout
+      android:layout_below="@id/information_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
   <Button
+      android:layout_weight="1"
       android:layout_margin="7dp"
       style="@style/CustomButton"
       android:textSize="@dimen/text_size_in_block_list_for_rooms"
       android:id="@+id/button_change_room"
-      android:layout_below="@id/information_layout"
       android:text="Изменить"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      />
+  />
+
+    <Button
+        android:layout_weight="1"
+        android:layout_margin="7dp"
+        style="@style/CustomButton"
+        android:textSize="@dimen/text_size_in_block_list_for_rooms"
+        android:id="@+id/button_delete_room"
+        android:text="Удалить"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+  </LinearLayout>
+
   </RelativeLayout>

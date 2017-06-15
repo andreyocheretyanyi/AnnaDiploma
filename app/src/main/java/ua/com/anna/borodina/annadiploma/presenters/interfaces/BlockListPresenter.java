@@ -11,4 +11,8 @@ public interface BlockListPresenter extends BasePresenter<IBlockListVIew> {
     public ArrayList<Block> getData();
 
     public ArrayList<Room> getRoomFromBlockId(int id);
+
+
+    public void deleteBlock(int id);
+
 }
