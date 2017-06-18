@@ -57,7 +57,7 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
     presenter = new BlockListViewPresenterImpl();
     presenter.onAttachView(this);
     recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_in_block_list);
-    mAdapter = new BlocksListAdapters(v.getContext());
+    mAdapter = new BlocksListAdapters(v.getContext(),this);
     mAdapter.setData(presenter.getData());
     mAdapter.notifyDataSetChanged();
     mAdapter.bindPresenter(presenter);

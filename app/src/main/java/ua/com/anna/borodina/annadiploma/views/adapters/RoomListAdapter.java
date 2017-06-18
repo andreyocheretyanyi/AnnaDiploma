@@ -14,21 +14,25 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.concurrent.ExecutionException;
 
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.model.dao.Room;
-
+import ua.com.anna.borodina.annadiploma.views.dialogs.DialogWithCalendar;
+import ua.com.anna.borodina.annadiploma.views.fragments.BaseFragment;
 
 
 public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHolder> {
 
   private Context context;
   private DatabaseProviderImpl db;
+  private BaseFragment parent;
 
-  public RoomListAdapter(Context context) {
+  public RoomListAdapter(Context context,BaseFragment parent) {
     this.context = context;
+    this.parent = parent;
   }
 
   private ArrayList<Room> myDataSet = new ArrayList<>();
@@ -74,6 +78,15 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
       holder.roomPrice.setText(String.valueOf(myDataSet.get(pos).getPrice()));
       holder.roomFree.setChecked(validateWaterOrFree(myDataSet.get(pos).getFree()));
       holder.roomWater.setChecked(validateWaterOrFree(myDataSet.get(pos).getWater()));
+      holder.date.setText(String.valueOf(context.getString(R.string.day_off)+ myDataSet.get(pos).getDate()));
+      holder.dialogWithCalendar.setSelectedDate(myDataSet.get(pos).getDate());
+    Long dateTMS = DialogWithCalendar.convertDate(myDataSet.get(pos).getDate());
+    if(dateTMS != null){
+      holder.dialogWithCalendar.setDate(dateTMS);
+    }
+
+
+
 
       holder.changeRoomButton.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -86,9 +99,24 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
             db.updateRoomsNumber(id,number);
             db.updateRoomsFree(id, validateWaterOrFree(holder.roomFree.isChecked()));
             db.updateRoomsWater(id, validateWaterOrFree(holder.roomWater.isChecked()));
+            db.updateRoomsDate(id,holder.dialogWithCalendar.getSelectedDate());
+            Long dateTMS = DialogWithCalendar.convertDate(holder.dialogWithCalendar.getSelectedDate());
+            if(dateTMS != null)
+            holder.dialogWithCalendar.setDate(dateTMS);
+            updateDataSet(myDataSet.get(pos),number,price,validateWaterOrFree(holder.roomFree.isChecked()),
+                    validateWaterOrFree(holder.roomWater.isChecked()),holder.dialogWithCalendar.getSelectedDate());
+            notifyDataSetChanged();
           }
         }
       });
+  }
+
+  private void updateDataSet(Room room,int number,int price, int free, int water, String date){
+    room.setNumber(number);
+    room.setPrice(price);
+    room.setFree(free);
+    room.setWater(water);
+    room.setDate(date);
   }
 
   private boolean validateWaterOrFree(int flag){
@@ -130,11 +158,17 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     SwitchCompat roomWater;
     @BindView(R.id.button_delete_room)
     Button deleteRoom;
+    @BindView(R.id.text_view_date_in_room)
+    TextView date;
+    DialogWithCalendar dialogWithCalendar;
 
     ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this,itemView);
       deleteRoom.setOnClickListener(this);
+      date.setOnClickListener(this);
+      dialogWithCalendar = new DialogWithCalendar();
+      dialogWithCalendar.bindParent(parent);
 
     }
 
@@ -142,6 +176,8 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     public void onClick(View v) {
       if(v.getId() == deleteRoom.getId()){
         removeItem(getAdapterPosition());
+      }else if(v.getId() == date.getId()){
+        dialogWithCalendar.show(parent.getChildFragmentManager(),"CALENDAR");
       }
     }
   }

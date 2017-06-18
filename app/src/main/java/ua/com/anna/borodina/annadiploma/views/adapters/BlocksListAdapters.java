@@ -21,16 +21,18 @@ import java.util.ArrayList;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.BlockListPresenter;
-
+import ua.com.anna.borodina.annadiploma.views.fragments.BaseFragment;
 
 
 public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.ViewHolder> {
 
     private Context context;
     private BlockListPresenter presenter;
+    private BaseFragment parent;
 
-    public BlocksListAdapters(Context context) {
+    public BlocksListAdapters(Context context,BaseFragment parent) {
         this.context = context;
+        this.parent = parent;
     }
 
     private ArrayList<Block> myDataSet = new ArrayList<>();
@@ -115,15 +117,15 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         Button deleteButton;
         @BindView(R.id.recycler_room_list)
         public RecyclerView roomList;
-      @BindView(R.id.button_detail)
-      Button buttonListDetail;
+        @BindView(R.id.button_detail)
+        Button buttonListDetail;
         boolean isOpen = false;
 
         ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
             roomList = (RecyclerView) roomList.findViewById(R.id.recycler_room_list);
-            roomListAdapter = new RoomListAdapter(itemView.getContext());
+            roomListAdapter = new RoomListAdapter(itemView.getContext(),parent);
             lm = new LinearLayoutManager(itemView.getContext());
             roomList.setAdapter(roomListAdapter);
             roomList.setLayoutManager(lm);

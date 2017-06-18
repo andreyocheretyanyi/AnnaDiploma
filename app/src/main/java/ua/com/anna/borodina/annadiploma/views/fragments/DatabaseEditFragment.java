@@ -14,11 +14,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ import java.util.List;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.presenters.DatabaseEditPresenterImpl;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
+import ua.com.anna.borodina.annadiploma.views.dialogs.DialogWithCalendar;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
 
@@ -52,10 +57,21 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
   LinearLayout activityDatabaseEdit;
   @BindView(R.id.edit_text_room_number)
   EditText mRoomNumber;
+    @BindView(R.id.text_view_dayoff)
+    TextView mDayOffText;
   Unbinder unbinder;
   private DatabaseEditPresenter presenter;
+    DialogWithCalendar dialogWithCalendar;
 
-  @Nullable
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        dialogWithCalendar = new DialogWithCalendar();
+        dialogWithCalendar.bindParent(this);
+    }
+
+    @Nullable
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -85,6 +101,11 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
 
   }
 
+  @OnClick(R.id.text_view_dayoff)
+  public void onDateClick(){
+    dialogWithCalendar.show(getChildFragmentManager(),"CALENDAR");
+  }
+
   @OnClick(R.id.button_save_room)
   public void saveRoomClick() {
     if (editTextRoomPrice.getText().toString().equals("") ) {
@@ -96,9 +117,10 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
       return;
     }
 
-
+    String date = "";
+      date = dialogWithCalendar.getSelectedDate();
       presenter.addRoom(switchWater.isChecked(), mRoomNumber.getText().toString(), editTextRoomPrice.getText().toString(),
-          switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem());
+          switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem(),date);
       presenter.sendNotification();
     }
 
@@ -142,5 +164,7 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
     @Override
     public void setDate(String date) {
 
+      mDayOffText.setText(date);
+      dialogWithCalendar.setDate(DialogWithCalendar.convertDate(date));
     }
 }

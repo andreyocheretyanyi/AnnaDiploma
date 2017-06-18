@@ -6,9 +6,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+  <LinearLayout
+      android:id="@+id/information_layout"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
 <LinearLayout
     android:padding="7dp"
-    android:id="@+id/information_layout"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -104,6 +109,15 @@
         android:layout_height="match_parent" />
   </LinearLayout>
 </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_date_in_room"
+        android:text="DATE"
+        style="@style/CustomTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+  </LinearLayout>
 
   <LinearLayout
       android:layout_below="@id/information_layout"

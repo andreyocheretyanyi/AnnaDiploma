@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,18 +41,21 @@ public class DialogWithCalendar extends DialogFragment implements CalendarView.O
         return v;
     }
 
+
+
     public void setDate(long date){
         currDate = date;
     }
 
-    public static long convertDate(String date){
+    public static Long convertDate(String date){
         SimpleDateFormat f = new SimpleDateFormat("dd.M.yyyy");
-        long milliseconds = 0;
+        long milliseconds;
         try {
             Date d = f.parse(date);
             milliseconds = d.getTime();
         } catch (ParseException e) {
             e.printStackTrace();
+            return null;
         }
 
         return milliseconds;
@@ -67,6 +71,11 @@ public class DialogWithCalendar extends DialogFragment implements CalendarView.O
                 .append(" ").toString();
         parent.setDate(selectedDate);
         dismiss();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     public String getSelectedDate() {

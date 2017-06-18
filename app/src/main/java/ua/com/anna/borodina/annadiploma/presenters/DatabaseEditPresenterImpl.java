@@ -35,9 +35,9 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
 
     }
 
-    public void addRoom(Boolean water,String number, String price, Boolean free, String block_id) {
+    public void addRoom(Boolean water,String number, String price, Boolean free, String block_id,String date) {
         DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
-        dp.addRooms(validate(water,number, price,free,block_id));
+        dp.addRooms(validate(water,number, price,free,block_id,date));
         dp.selectRooms();
     }
 
@@ -71,7 +71,7 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
             else return 0;
     }
 
-    private Room validate(Boolean water,String number,String price,Boolean free, String blockId){
+    private Room validate(Boolean water,String number,String price,Boolean free, String blockId,String date){
         Room room;
         int water_int,price_int,free_int,block_id_int,number_int;
         water_int =validateWaterOrFree(water);
@@ -79,7 +79,7 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         free_int = validateWaterOrFree(free);
         block_id_int = getBlockId(blockId);
         number_int = Integer.parseInt(number);
-        room = new Room(0,number_int,water_int,free_int,price_int,block_id_int);
+        room = new Room(0,number_int,water_int,free_int,price_int,block_id_int,date);
         return room;
 
     }
