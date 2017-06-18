@@ -78,5 +78,10 @@ public class BlockListFragment extends BaseFragment implements IBlockListVIew {
   public Context getContextFromView() {
     return getContext();
   }
+
+  @Override
+  public void setDate(String date) {
+
+  }
 }
 

@@ -138,4 +138,9 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
     super.onDestroyView();
     unbinder.unbind();
   }
+
+    @Override
+    public void setDate(String date) {
+
+    }
 }

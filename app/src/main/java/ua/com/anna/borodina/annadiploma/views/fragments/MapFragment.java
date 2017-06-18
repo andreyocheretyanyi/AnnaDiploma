@@ -33,4 +33,9 @@ public class MapFragment extends BaseFragment implements IMapView {
   public Context getContextFromView() {
     return getContext();
   }
+
+  @Override
+  public void setDate(String date) {
+
+  }
 }

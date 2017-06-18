@@ -24,11 +24,13 @@ public class DatabaseProviderImpl {
     public static final String BLOCK_TABLE_NAME = "blocks";
     public static final String NAME_COLUMN_IN_BLOCK = "name";
     public static final String BLOCK_ID_IN_ROOMS = "block_id";
+    public static final String DATE ="date";
+    private static int VERSION = 2;
 
 
     public DatabaseProviderImpl(Context context){
         cntx = context;
-        dh = new MyDataBaseProvider(cntx,"MARKET_PLACE",null,1);
+        dh = new MyDataBaseProvider(cntx,"MARKET_PLACE",null,2);
     }
 
 
@@ -40,6 +42,7 @@ public class DatabaseProviderImpl {
         contentValues.put(FREE_COLUMN,room.getFree());
         contentValues.put(PRICE_COLUMN,room.getPrice());
         contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlock_id());
+        contentValues.put(DATE,room.getDate());
         db.insert(ROOMS_TABLE_NAME,null,contentValues);
         db.close();
     }
@@ -109,17 +112,15 @@ public class DatabaseProviderImpl {
             int freeIndex = c.getColumnIndex(FREE_COLUMN);
             int priceIndex = c.getColumnIndex(PRICE_COLUMN);
             int block_idIndex = c.getColumnIndex(BLOCK_ID_IN_ROOMS);
+            int date_index = c.getColumnIndex(DATE);
 
             do {
-                Room room = new Room(c.getInt(idIndex),c.getInt(number_index),c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
+                Room room = new Room(c.getInt(idIndex),c.getInt(number_index),c.getInt(waterIndex),c.getInt(freeIndex)
+                        ,c.getInt(priceIndex),c.getInt(block_idIndex),c.getString(date_index));
                 arr.add(room);
-                Log.d("!!!!!!",
-                        "ID = " + c.getInt(idIndex) +
-                                ", water = " + c.getString(waterIndex));
 
             } while (c.moveToNext());
         } else {
-            Log.d("!!!!!!", "0 rows");
             c.close();
         }
         if (!c.isClosed()) {
@@ -140,19 +141,17 @@ public class DatabaseProviderImpl {
             int freeIndex = c.getColumnIndex(FREE_COLUMN);
             int priceIndex = c.getColumnIndex(PRICE_COLUMN);
             int block_idIndex = c.getColumnIndex(BLOCK_ID_IN_ROOMS);
+            int date_index = c.getColumnIndex(DATE);
 
             do {
-                Room room = new Room(c.getInt(idIndex),c.getInt(numberIndex), c.getInt(waterIndex),c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex));
+                Room room = new Room(c.getInt(idIndex),c.getInt(numberIndex), c.getInt(waterIndex),
+                        c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex),
+                        c.getString(date_index));
                 arr.add(room);
-                Log.d("!!!!!!",
-                        "ID = " + c.getInt(idIndex) +
-                                ", water = " + c.getString(waterIndex) +
-                                ", block = " + c.getString(block_idIndex));
 
 
             } while (c.moveToNext());
         } else {
-            Log.d("!!!!!!", "0 rows");
             c.close();
         }
         if (!c.isClosed()) {
@@ -195,6 +194,14 @@ public class DatabaseProviderImpl {
         SQLiteDatabase db = dh.getReadableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(PRICE_COLUMN,price);
+        db.update(ROOMS_TABLE_NAME,cv,"_id = ?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void updateRoomsDate(int id,String date){
+        SQLiteDatabase db = dh.getReadableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(DATE,date);
         db.update(ROOMS_TABLE_NAME,cv,"_id = ?",new String[]{String.valueOf(id)});
         db.close();
     }
