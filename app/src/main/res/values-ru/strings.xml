@@ -26,7 +26,7 @@
     <string name="add_new_block">Добавить новый блок</string>
     <string name="string_add_new_room">Добавить новую комнату</string>
     <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
-    <string name="day_off">Day off:</string>
-    <string name="click_for_change_date">CLICK FOR CHANGE DATE</string>
+    <string name="day_off">Аренда до: </string>
+    <string name="click_for_change_date">Выбрать дату</string>
 
 </resources>
