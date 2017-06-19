@@ -161,6 +161,7 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     @BindView(R.id.text_view_date_in_room)
     TextView date;
     DialogWithCalendar dialogWithCalendar;
+    boolean isChanged;
 
     ViewHolder(View itemView) {
       super(itemView);
@@ -169,6 +170,7 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
       date.setOnClickListener(this);
       dialogWithCalendar = new DialogWithCalendar();
       dialogWithCalendar.bindParent(parent);
+        isChanged = false;
 
     }
 
