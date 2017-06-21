@@ -19,14 +19,16 @@
             <android.support.v7.widget.CardView
                 style="@style/CustomCardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <LinearLayout
+                    android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    >
 
 
                     <TextView
@@ -58,6 +60,7 @@
                     </LinearLayout>
 
                     <Button
+                        android:layout_margin="10dp"
                         android:id="@+id/button_add_block"
                         style="@style/CustomButton"
                         android:layout_width="match_parent"
@@ -227,6 +230,7 @@
 
 
                     <Button
+                        android:layout_margin="10dp"
                         android:id="@+id/button_save_room"
                         style="@style/CustomButton"
                         android:layout_width="match_parent"
@@ -250,6 +254,7 @@
 
 
                     <Button
+                        android:layout_margin="10dp"
                         android:id="@+id/delete_all"
                         style="@style/CustomButton"
                         android:layout_width="match_parent"

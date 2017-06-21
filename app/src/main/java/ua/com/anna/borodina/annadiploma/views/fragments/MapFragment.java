@@ -13,13 +13,14 @@ import ua.com.anna.borodina.annadiploma.views.interfaces.IMapView;
 
 
 public class MapFragment extends BaseFragment implements IMapView {
+    PDFView pdfView;
 
   @Nullable
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View v = inflater.inflate(R.layout.fragment_map_view,container,false);
-    PDFView pdfView = (PDFView) v.findViewById(R.id.pdfView);
+    pdfView = (PDFView) v.findViewById(R.id.pdfView);
     pdfView.fromAsset("map.pdf").load();
     pdfView.setMaxZoom(20);
     pdfView.setMidZoom(10);

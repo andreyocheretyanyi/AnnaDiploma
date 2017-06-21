@@ -39,6 +39,7 @@
 
         <Button
             android:padding="7dp"
+            android:layout_margin="3dp"
             style="@style/CustomButton"
             android:textSize="@dimen/text_size_in_block_list_for_rooms"
             android:text="Удалить блок"
