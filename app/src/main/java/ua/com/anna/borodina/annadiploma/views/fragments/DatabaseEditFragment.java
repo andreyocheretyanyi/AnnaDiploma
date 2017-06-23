@@ -117,8 +117,10 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
       return;
     }
 
-    String date = "";
+    String date;
       date = dialogWithCalendar.getSelectedDate();
+      if(date == null)
+          date = "date";
       presenter.addRoom(switchWater.isChecked(), mRoomNumber.getText().toString(), editTextRoomPrice.getText().toString(),
           switchFree.isChecked(), (String) spinnerRoomBlockList.getSelectedItem(),date);
       presenter.sendNotification();

@@ -67,7 +67,11 @@ public class DatabaseProviderImpl {
         ContentValues contentValues = new ContentValues();
         contentValues.put("_id",block.getId());
         contentValues.put(NAME_COLUMN_IN_BLOCK,block.getName());
-        db.insert(BLOCK_TABLE_NAME,null,contentValues);
+        if(db.insert(BLOCK_TABLE_NAME,null,contentValues) == -1){
+            contentValues = new ContentValues();
+            contentValues.put(NAME_COLUMN_IN_BLOCK,block.getName());
+            db.insert(BLOCK_TABLE_NAME,null,contentValues);
+        }
         db.close();
     }
 

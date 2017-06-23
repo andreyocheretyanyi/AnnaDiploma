@@ -15,8 +15,8 @@ android {
         applicationId "ua.com.anna.borodina.annadiploma"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.3"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
