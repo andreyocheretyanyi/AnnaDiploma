@@ -34,25 +34,38 @@ public class DatabaseProviderImpl {
 
 
     public void addRooms(Room room){
+        if(room.getBlockId() == -1) {
+            return;
+        }
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("_id",room.getId());
         contentValues.put(NUMBER_COLUMN,room.getNumber());
         contentValues.put(WATER_COLUMN,room.getWater());
         contentValues.put(FREE_COLUMN,room.getFree());
         contentValues.put(PRICE_COLUMN,room.getPrice());
         contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlockId());
         contentValues.put(DATE,room.getDate());
-        if(room.getBlockId() == -1) {
-            db.close();
-            return;
+
+        if(db.insert(ROOMS_TABLE_NAME,null,contentValues) == -1){
+            contentValues = new ContentValues();
+            contentValues.put(NUMBER_COLUMN,room.getNumber());
+            contentValues.put(WATER_COLUMN,room.getWater());
+            contentValues.put(FREE_COLUMN,room.getFree());
+            contentValues.put(PRICE_COLUMN,room.getPrice());
+            contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlockId());
+            contentValues.put(DATE,room.getDate());
+            db.insert(ROOMS_TABLE_NAME,null,contentValues);
         }
-        db.insert(ROOMS_TABLE_NAME,null,contentValues);
+
+
         db.close();
     }
 
     public void addBlocks(Block block){
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("_id",block.getId());
         contentValues.put(NAME_COLUMN_IN_BLOCK,block.getName());
         db.insert(BLOCK_TABLE_NAME,null,contentValues);
         db.close();
