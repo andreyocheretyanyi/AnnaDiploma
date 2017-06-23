@@ -8,17 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
-import java.util.concurrent.ExecutionException;
 
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
-import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.model.dao.Room;
 import ua.com.anna.borodina.annadiploma.views.dialogs.DialogWithCalendar;
 import ua.com.anna.borodina.annadiploma.views.fragments.BaseFragment;

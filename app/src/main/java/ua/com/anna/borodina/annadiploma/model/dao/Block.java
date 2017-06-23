@@ -1,16 +1,23 @@
+
 package ua.com.anna.borodina.annadiploma.model.dao;
 
-
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Block {
-    private int id;
+
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
     private String name;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -22,8 +29,4 @@ public class Block {
         this.name = name;
     }
 
-    public Block(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 }

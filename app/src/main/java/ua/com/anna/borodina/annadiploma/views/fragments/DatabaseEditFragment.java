@@ -132,6 +132,16 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
     adapter.notifyDataSetChanged();
   }
 
+  @OnClick(R.id.button_sync_to_server)
+  public void sendDataToServer(){
+    presenter.createRequestForUpdate();
+  }
+
+  @OnClick(R.id.button_sync_from_server)
+  public void getDataFromServer(){
+    presenter.getDataFromServer();
+  }
+
   ArrayAdapter<String> adapter;
   List<String> list = new ArrayList<>();
 

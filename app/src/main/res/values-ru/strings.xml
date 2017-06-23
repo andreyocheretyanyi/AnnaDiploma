@@ -28,5 +28,6 @@
     <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
     <string name="day_off">Аренда до: </string>
     <string name="click_for_change_date">Выбрать дату</string>
+    <string name="update_database">Update global data</string>
 
 </resources>

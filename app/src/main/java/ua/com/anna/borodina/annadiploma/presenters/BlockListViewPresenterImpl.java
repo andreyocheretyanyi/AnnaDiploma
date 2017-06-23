@@ -1,8 +1,5 @@
 package ua.com.anna.borodina.annadiploma.presenters;
 
-import android.database.Cursor;
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;

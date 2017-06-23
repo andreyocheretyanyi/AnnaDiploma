@@ -27,4 +27,6 @@
   <string name="need_not_a_clear_field">Error </string>
     <string name="day_off">Day off: </string>
     <string name="click_for_change_date">Change date</string>
+    <string name="update_database">Update global data</string>
+    <string name="update_local_db">Update local data</string>
 </resources>

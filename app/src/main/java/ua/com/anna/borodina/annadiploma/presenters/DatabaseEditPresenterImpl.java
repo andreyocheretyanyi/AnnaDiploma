@@ -1,9 +1,11 @@
 package ua.com.anna.borodina.annadiploma.presenters;
 
-import android.view.View;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -12,9 +14,12 @@ import retrofit2.Response;
 import ua.com.anna.borodina.annadiploma.App;
 import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
+import ua.com.anna.borodina.annadiploma.model.dao.GetDataResultResponse;
 import ua.com.anna.borodina.annadiploma.model.dao.Notification;
+import ua.com.anna.borodina.annadiploma.model.dao.ResponseStatusUpdate;
 import ua.com.anna.borodina.annadiploma.model.dao.Room;
 import ua.com.anna.borodina.annadiploma.model.dao.SendMessageRequest;
+import ua.com.anna.borodina.annadiploma.model.dao.UpdateRequestBody;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.DatabaseEditPresenter;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
@@ -35,10 +40,63 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
 
     }
 
+
+    public void createRequestForUpdate(){
+        UpdateRequestBody updateRequestBody = new UpdateRequestBody();
+        DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
+        List<Block> blocks =  dp.selectBlocks();
+        List<Room> rooms = dp.selectRooms();
+        for (Room room : rooms){
+            Log.d("ROOOOOOOMS",room.getId()+"");
+        }
+
+        updateRequestBody.setBlocks(blocks);
+        updateRequestBody.setRooms(rooms);
+        Map<String,String> headers = new HashMap<>();
+        headers.put("Content-type:","application/json");
+        headers.put("Token:","");
+        App.getRetrofitServer().updateDataOnServer(headers,updateRequestBody).enqueue(new Callback<ResponseStatusUpdate>() {
+            @Override
+            public void onResponse(Call<ResponseStatusUpdate> call, Response<ResponseStatusUpdate> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStatusUpdate> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    public void getDataFromServer(){
+        Map<String,String> headers = new HashMap<>();
+        headers.put("Content-type:","application/json");
+        headers.put("Token:","");
+        App.getRetrofitServer().getDataFromServer(headers).enqueue(new Callback<GetDataResultResponse>() {
+            @Override
+            public void onResponse(Call<GetDataResultResponse> call, Response<GetDataResultResponse> response) {
+                if(response.body().getStatus()) {
+                    DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
+                    dp.deleteBlocks();
+                    for (Block block : response.body().getBlocks())
+                        dp.addBlocks(block);
+                    for (Room room : response.body().getRooms())
+                        dp.addRooms(room);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetDataResultResponse> call, Throwable t) {
+
+            }
+        });
+
+    }
+
     public void addRoom(Boolean water,String number, String price, Boolean free, String block_id,String date) {
         DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
         dp.addRooms(validate(water,number, price,free,block_id,date));
-        dp.selectRooms();
     }
 
     public List<String> getBlockNameArray(){
@@ -71,7 +129,7 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
             else return 0;
     }
 
-    private Room validate(Boolean water,String number,String price,Boolean free, String blockId,String date){
+    private Room validate(Boolean water, String number, String price, Boolean free, String blockId, String date){
         Room room;
         int water_int,price_int,free_int,block_id_int,number_int;
         water_int =validateWaterOrFree(water);
@@ -79,7 +137,14 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         free_int = validateWaterOrFree(free);
         block_id_int = getBlockId(blockId);
         number_int = Integer.parseInt(number);
-        room = new Room(0,number_int,water_int,free_int,price_int,block_id_int,date);
+        room = new Room();
+        room.setId(0);
+        room.setBlockId(block_id_int);
+        room.setNumber(number_int);
+        room.setPrice(price_int);
+        room.setFree(free_int);
+        room.setWater(water_int);
+        room.setDate(date);
         return room;
 
     }
@@ -91,7 +156,7 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         notification.setBody("Внимание! База данных была изменена");
         msg.setNotification(notification);
         msg.setTo("/topics/allDevices");
-        App.getRetrofitAPI().authRequest(msg).enqueue(new Callback<ResponseBody>() {
+        App.getRetrofitNotifications().authRequest(msg).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
@@ -107,7 +172,9 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
     @Override
     public void addBlock(String name) {
         DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
-        Block block = new Block(0,name);
+        Block block = new Block();
+        block.setId(0);
+        block.setName(name);
         dp.addBlocks(block);
     }
 
