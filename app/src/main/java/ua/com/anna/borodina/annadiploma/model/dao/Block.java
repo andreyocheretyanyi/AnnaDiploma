@@ -1,4 +1,3 @@
-
 package ua.com.anna.borodina.annadiploma.model.dao;
 
 import com.google.gson.annotations.Expose;

@@ -14,7 +14,7 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-      super.onCreate();
+        super.onCreate();
         Retrofit retrofitNotifications = new Retrofit.Builder()
                 .baseUrl("https://fcm.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -29,11 +29,11 @@ public class App extends Application {
     }
 
 
-    public static RetrofitAPI getRetrofitNotifications(){
+    public static RetrofitAPI getRetrofitNotifications() {
         return retrofitNtfc;
     }
 
-    public static RetrofitAPI getRetrofitServer(){
+    public static RetrofitAPI getRetrofitServer() {
         return retrofitServer;
     }
 }

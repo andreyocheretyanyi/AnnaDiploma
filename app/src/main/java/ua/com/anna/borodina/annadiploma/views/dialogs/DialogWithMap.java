@@ -1,19 +1,15 @@
 package ua.com.anna.borodina.annadiploma.views.dialogs;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 
-import butterknife.ButterKnife;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.views.fragments.MapFragment;
-
 
 
 public class DialogWithMap extends DialogFragment {

@@ -1,9 +1,7 @@
 package ua.com.anna.borodina.annadiploma.presenters;
 
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.MapViewPresenter;
-import ua.com.anna.borodina.annadiploma.views.interfaces.BaseView;
 import ua.com.anna.borodina.annadiploma.views.interfaces.IMapView;
-
 
 
 public class MapViewPresenterImpl implements MapViewPresenter {

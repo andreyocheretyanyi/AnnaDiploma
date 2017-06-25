@@ -23,8 +23,8 @@ public interface RetrofitAPI {
 
 
     @GET("/getAll")
-    Call<GetDataResultResponse> getDataFromServer(@HeaderMap Map<String,String> headers);
+    Call<GetDataResultResponse> getDataFromServer(@HeaderMap Map<String, String> headers);
 
     @POST("/add")
-    Call<ResponseStatusUpdate> updateDataOnServer(@HeaderMap Map<String,String> headers, @Body UpdateRequestBody body);
+    Call<ResponseStatusUpdate> updateDataOnServer(@HeaderMap Map<String, String> headers, @Body UpdateRequestBody body);
 }

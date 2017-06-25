@@ -20,14 +20,17 @@
   <string name="string_water_in_room">Water in room:</string>
   <string name="string_price_room">Price:</string>
   <string name="delete_all">Delete all</string>
-    <string name="string_room_number">Number:</string>
+  <string name="string_room_number">Number:</string>
   <string name="block_name_for_room">Room`s block name</string>
   <string name="add_new_block">Add a new block</string>
   <string name="string_add_new_room">Add a new room</string>
   <string name="need_not_a_clear_field">Error </string>
-    <string name="day_off">Day off: </string>
-    <string name="click_for_change_date">Change date</string>
-    <string name="update_database">Update global data</string>
-    <string name="update_local_db">Update local data</string>
-    <string name="please_wait">Please wait...</string>
+  <string name="day_off">Day off: </string>
+  <string name="click_for_change_date">Change date</string>
+  <string name="update_database">Update global data</string>
+  <string name="update_local_db">Update local data</string>
+  <string name="please_wait">Please wait…</string>
+  <string name="update_success">Update success</string>
+  <string name="con_error">Connection Error!!</string>
+  <string name="update_local_success">Local database updated successfully</string>
 </resources>

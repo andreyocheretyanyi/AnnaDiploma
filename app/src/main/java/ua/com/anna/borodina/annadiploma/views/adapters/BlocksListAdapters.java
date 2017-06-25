@@ -11,11 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ua.com.anna.borodina.annadiploma.R;
 import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.presenters.interfaces.BlockListPresenter;
@@ -28,18 +27,18 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
     private BlockListPresenter presenter;
     private BaseFragment parent;
 
-    public BlocksListAdapters(Context context,BaseFragment parent) {
+    public BlocksListAdapters(Context context, BaseFragment parent) {
         this.context = context;
         this.parent = parent;
     }
 
     private ArrayList<Block> myDataSet = new ArrayList<>();
 
-    public void bindPresenter(BlockListPresenter presenter){
+    public void bindPresenter(BlockListPresenter presenter) {
         this.presenter = presenter;
     }
 
-    public void setData( ArrayList<Block> newData) {
+    public void setData(ArrayList<Block> newData) {
         myDataSet = newData;
         notifyDataSetChanged();
     }
@@ -57,9 +56,9 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
     }
 
     public void clear() {
-       int size = myDataSet.size();
+        int size = myDataSet.size();
         if (size > 0) {
-            for (int i =0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 myDataSet.remove(0);
             }
             notifyItemRangeRemoved(0, size);
@@ -74,27 +73,26 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-       final int pos = position;
+        final int pos = position;
         holder.blockName.setText(myDataSet.get(position).getName());
-        holder.blockNumber.setText((position+1)+".");
+        holder.blockNumber.setText((position + 1) + ".");
 
 
-      holder.buttonListDetail.setOnClickListener(new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          if(!holder.isOpen){
-            holder.isOpen = true;
-            holder.roomListAdapter.setData(presenter.getRoomFromBlockId(myDataSet.get(pos).getId()));
-            holder.roomListAdapter.notifyDataSetChanged();
-            holder.roomList.setVisibility(View.VISIBLE);
+        holder.buttonListDetail.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!holder.isOpen) {
+                    holder.isOpen = true;
+                    holder.roomListAdapter.setData(presenter.getRoomFromBlockId(myDataSet.get(pos).getId()));
+                    holder.roomListAdapter.notifyDataSetChanged();
+                    holder.roomList.setVisibility(View.VISIBLE);
 
-          }
-          else {
-            holder.isOpen = false;
-            holder.roomList.setVisibility(View.GONE);
-          }
-        }
-      });
+                } else {
+                    holder.isOpen = false;
+                    holder.roomList.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 
@@ -104,9 +102,9 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         return myDataSet.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements OnClickListener{
-       private RoomListAdapter roomListAdapter;
-       private LayoutManager lm;
+    class ViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+        private RoomListAdapter roomListAdapter;
+        private LayoutManager lm;
         @BindView(R.id.block_name)
         TextView blockName;
         @BindView(R.id.block_number_text_view)
@@ -121,9 +119,9 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
 
         ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             roomList = (RecyclerView) roomList.findViewById(R.id.recycler_room_list);
-            roomListAdapter = new RoomListAdapter(itemView.getContext(),parent);
+            roomListAdapter = new RoomListAdapter(itemView.getContext(), parent);
             lm = new LinearLayoutManager(itemView.getContext());
             roomList.setAdapter(roomListAdapter);
             roomList.setLayoutManager(lm);
@@ -132,7 +130,7 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
 
         @Override
         public void onClick(View v) {
-            if(v.getId() == deleteButton.getId()){
+            if (v.getId() == deleteButton.getId()) {
                 removeItem(getAdapterPosition());
             }
         }

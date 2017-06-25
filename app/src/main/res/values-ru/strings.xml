@@ -28,7 +28,10 @@
     <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
     <string name="day_off">Аренда до: </string>
     <string name="click_for_change_date">Выбрать дату</string>
-    <string name="update_database">Update global data</string>
-    <string name="please_wait">Please wait...</string>
-
+    <string name="update_database">Отправить данные на сервер</string>
+    <string name="update_local_db">Получить данные с сервера</string>
+    <string name="please_wait">Пожалуйста подождите…</string>
+    <string name="update_success">Обновление данных прошло успешно</string>
+    <string name="con_error">Ошибка соединения</string>
+    <string name="update_local_success">Локальные данные обновлены успешно</string>
 </resources>
