@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -54,11 +55,13 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
   @BindView(R.id.delete_all)
   Button deleteAll;
   @BindView(R.id.activity_database_edit)
-  LinearLayout activityDatabaseEdit;
+  RelativeLayout activityDatabaseEdit;
   @BindView(R.id.edit_text_room_number)
   EditText mRoomNumber;
     @BindView(R.id.text_view_dayoff)
     TextView mDayOffText;
+  @BindView(R.id.dialog_wait)
+  RelativeLayout mWaitDialog;
   Unbinder unbinder;
   private DatabaseEditPresenter presenter;
     DialogWithCalendar dialogWithCalendar;
@@ -136,12 +139,12 @@ public class DatabaseEditFragment extends BaseFragment implements IDatabaseEdit 
 
   @OnClick(R.id.button_sync_to_server)
   public void sendDataToServer(){
-    presenter.createRequestForUpdate();
+    presenter.createRequestForUpdate(mWaitDialog);
   }
 
   @OnClick(R.id.button_sync_from_server)
   public void getDataFromServer(){
-    presenter.getDataFromServer();
+    presenter.getDataFromServer(mWaitDialog);
   }
 
   ArrayAdapter<String> adapter;

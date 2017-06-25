@@ -1,5 +1,7 @@
 package ua.com.anna.borodina.annadiploma.presenters.interfaces;
 
+import android.widget.RelativeLayout;
+
 import java.util.List;
 
 import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
@@ -8,9 +10,9 @@ import ua.com.anna.borodina.annadiploma.views.interfaces.IDatabaseEdit;
 
 public interface DatabaseEditPresenter extends BasePresenter<IDatabaseEdit> {
 
-    public void createRequestForUpdate();
+    public void createRequestForUpdate(RelativeLayout relativeLayout);
 
-    public void getDataFromServer();
+    public void getDataFromServer(RelativeLayout relativeLayout);
 
     void addBlock(String name);
 

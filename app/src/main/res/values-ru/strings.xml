@@ -29,5 +29,6 @@
     <string name="day_off">Аренда до: </string>
     <string name="click_for_change_date">Выбрать дату</string>
     <string name="update_database">Update global data</string>
+    <string name="please_wait">Please wait...</string>
 
 </resources>

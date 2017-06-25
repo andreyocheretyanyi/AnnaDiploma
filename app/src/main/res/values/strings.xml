@@ -29,4 +29,5 @@
     <string name="click_for_change_date">Change date</string>
     <string name="update_database">Update global data</string>
     <string name="update_local_db">Update local data</string>
+    <string name="please_wait">Please wait...</string>
 </resources>

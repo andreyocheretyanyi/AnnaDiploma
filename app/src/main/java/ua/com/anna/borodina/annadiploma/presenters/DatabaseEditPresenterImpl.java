@@ -1,6 +1,8 @@
 package ua.com.anna.borodina.annadiploma.presenters;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +43,8 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
     }
 
 
-    public void createRequestForUpdate(){
+    public void createRequestForUpdate(final RelativeLayout relativeLayout){
+        relativeLayout.setVisibility(View.VISIBLE);
         UpdateRequestBody updateRequestBody = new UpdateRequestBody();
         DatabaseProviderImpl dp = new DatabaseProviderImpl(view.getContextFromView());
         List<Block> blocks =  dp.selectBlocks();
@@ -58,18 +61,19 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
         App.getRetrofitServer().updateDataOnServer(headers,updateRequestBody).enqueue(new Callback<ResponseStatusUpdate>() {
             @Override
             public void onResponse(Call<ResponseStatusUpdate> call, Response<ResponseStatusUpdate> response) {
-
+                relativeLayout.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<ResponseStatusUpdate> call, Throwable t) {
-
+                relativeLayout.setVisibility(View.GONE);
             }
         });
     }
 
 
-    public void getDataFromServer(){
+    public void getDataFromServer(final RelativeLayout relativeLayout){
+        relativeLayout.setVisibility(View.VISIBLE);
         Map<String,String> headers = new HashMap<>();
         headers.put("Content-type:","application/json");
         headers.put("Token:","");
@@ -84,11 +88,12 @@ public class DatabaseEditPresenterImpl implements DatabaseEditPresenter {
                     for (Room room : response.body().getRooms())
                         dp.addRooms(room);
                 }
+                relativeLayout.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<GetDataResultResponse> call, Throwable t) {
-
+                relativeLayout.setVisibility(View.GONE);
             }
         });
 
