@@ -71,6 +71,9 @@ public class BlocksListAdapters extends RecyclerView.Adapter<BlocksListAdapters.
         return new ViewHolder(v);
     }
 
+
+
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final int pos = position;
