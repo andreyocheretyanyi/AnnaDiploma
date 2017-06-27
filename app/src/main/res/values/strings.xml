@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">AnnaDiploma</string>
+  <string name="app_name">Vidny</string>
   <string name="map">Map</string>
   <string name="select_zone">Select Block</string>
   <string name="about_me">About author</string>
@@ -33,4 +33,15 @@
   <string name="update_success">Update success</string>
   <string name="con_error">Connection Error!!</string>
   <string name="update_local_success">Local database updated successfully</string>
+  <string name="rooms">Rooms</string>
+  <string name="information">Information</string>
+  <string name="date">DATE</string>
+  <string name="udpate_room">Update</string>
+  <string name="delete">Delete</string>
+  <string name="delete_block">Delete block</string>
+  <string name="room_list">Room list</string>
+  <string name="is_free">Is free?</string>
+  <string name="water_s">Water</string>
+  <string name="price_p">Price</string>
+  <string name="room_number">Room number</string>
 </resources>

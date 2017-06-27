@@ -28,7 +28,7 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Номер комнаты"
+        android:text="@string/room_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
       <EditText
@@ -48,7 +48,7 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Цена"
+        android:text="@string/price_p"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -68,7 +68,7 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Свободна"
+        android:text="@string/is_free"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -93,7 +93,7 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Вода"
+        android:text="@string/water_s"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <android.support.v7.widget.SwitchCompat
@@ -111,7 +111,7 @@
 
     <TextView
         android:id="@+id/text_view_date_in_room"
-        android:text="DATE"
+        android:text="@string/date"
         style="@style/CustomTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -130,7 +130,7 @@
         style="@style/CustomButton"
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         android:id="@+id/button_change_room"
-        android:text="Изменить"
+        android:text="@string/udpate_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
@@ -140,7 +140,7 @@
         style="@style/CustomButton"
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         android:id="@+id/button_delete_room"
-        android:text="Удалить"
+        android:text="@string/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
