@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AnnaDiploma</string>
+    <string name="app_name">Видный</string>
     <string name="map">Карта</string>
     <string name="select_zone">Выбрать Блок</string>
     <string name="about_me">Об авторе</string>
@@ -28,5 +28,20 @@
     <string name="need_not_a_clear_field">Поле не должно быть пустым</string>
     <string name="day_off">Аренда до: </string>
     <string name="click_for_change_date">Выбрать дату</string>
-
+    <string name="update_database">Отправить данные на сервер</string>
+    <string name="update_local_db">Получить данные с сервера</string>
+    <string name="please_wait">Пожалуйста подождите…</string>
+    <string name="update_success">Обновление данных прошло успешно</string>
+    <string name="con_error">Ошибка соединения</string>
+    <string name="update_local_success">Локальные данные обновлены успешно</string>
+    <string name="rooms">Комнаты</string>
+    <string name="information">Общая информация</string>
+    <string name="date">Дата</string>
+    <string name="udpate_room">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_block">Удалить блок</string>
+    <string name="is_free">Свободна</string>
+    <string name="water_s">Вода</string>
+    <string name="price_p">Цена</string>
+    <string name="room_number">Номер комнаты</string>
 </resources>

@@ -10,5 +10,6 @@
     <color name="color_orange_pastel_light">#fee6c3</color>
     <color name="color_azure_mut">#d2e3e4</color>
     <color name="color_cyan">#aedeff</color>
+    <color name="color_gray_dark_transparent">#2a7e7e7e</color>
 
 </resources>

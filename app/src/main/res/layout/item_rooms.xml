@@ -16,9 +16,11 @@
     android:padding="7dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:baselineAligned="false">
 
     <LinearLayout
+        android:layout_gravity="bottom"
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -26,19 +28,19 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Номер комнаты"
-        android:layout_weight="1"
+        android:text="@string/room_number"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
       <EditText
           style="@style/EditTextInRoomsList"
           android:id="@+id/edit_text_room_number"
-          android:layout_weight="1"
           android:layout_width="match_parent"
-          android:layout_height="match_parent" />
+          android:layout_height="wrap_content" />
     </LinearLayout>
 
   <LinearLayout
+      android:paddingBottom="1dp"
+      android:gravity="bottom"
       android:layout_weight="1"
       android:orientation="vertical"
       android:layout_width="match_parent"
@@ -46,19 +48,19 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Цена"
-        android:layout_weight="1"
+        android:text="@string/price_p"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
     <EditText
-        style="@style/EditTextInRoomsList"
         android:id="@+id/edit_text_price"
-        android:layout_weight="1"
+        style="@style/EditTextInRoomsList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
   </LinearLayout>
 
   <LinearLayout
+      android:gravity="center"
       android:layout_weight="1"
       android:orientation="vertical"
       android:layout_width="match_parent"
@@ -66,18 +68,16 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Свободна"
-        android:layout_weight="1"
+        android:text="@string/is_free"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.SwitchCompat
         style="@style/CustomSwitchColor"
         android:id="@+id/switch_free"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
         app:showText="true"
         app:switchMinWidth="46dp"
         android:textOff="@string/no_text"
@@ -85,6 +85,7 @@
   </LinearLayout>
 
   <LinearLayout
+      android:gravity="center"
       android:layout_weight="1"
       android:orientation="vertical"
       android:layout_width="match_parent"
@@ -92,10 +93,9 @@
     <TextView
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         style="@style/CustomTextView"
-        android:text="Вода"
-        android:layout_weight="1"
+        android:text="@string/water_s"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
     <android.support.v7.widget.SwitchCompat
         style="@style/CustomSwitchColor"
         android:id="@+id/switch_water"
@@ -104,15 +104,14 @@
         android:textOn="@string/yest_text"
         android:textOff="@string/no_text"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
   </LinearLayout>
 </LinearLayout>
 
     <TextView
         android:id="@+id/text_view_date_in_room"
-        android:text="DATE"
+        android:text="@string/date"
         style="@style/CustomTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -120,33 +119,35 @@
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="15dp"
+      android:gravity="center"
       android:layout_below="@id/information_layout"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal">
-
-  <Button
-      android:layout_weight="1"
-      android:layout_margin="7dp"
-      style="@style/CustomButton"
-      android:textSize="@dimen/text_size_in_block_list_for_rooms"
-      android:id="@+id/button_change_room"
-      android:text="Изменить"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-  />
+      android:layout_height="wrap_content">
 
     <Button
-        android:layout_weight="1"
-        android:layout_margin="7dp"
+        android:layout_margin="10dp"
+        style="@style/CustomButton"
+        android:textSize="@dimen/text_size_in_block_list_for_rooms"
+        android:id="@+id/button_change_room"
+        android:text="@string/udpate_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_margin="10dp"
         style="@style/CustomButton"
         android:textSize="@dimen/text_size_in_block_list_for_rooms"
         android:id="@+id/button_delete_room"
-        android:text="Удалить"
-        android:layout_width="match_parent"
+        android:text="@string/delete"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
 
   </LinearLayout>
+
+
+
 
   </RelativeLayout>

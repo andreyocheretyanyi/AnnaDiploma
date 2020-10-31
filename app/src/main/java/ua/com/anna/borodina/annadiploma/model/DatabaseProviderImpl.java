@@ -12,7 +12,6 @@ import ua.com.anna.borodina.annadiploma.model.dao.Block;
 import ua.com.anna.borodina.annadiploma.model.dao.Room;
 
 
-
 public class DatabaseProviderImpl {
     private Context cntx;
     private MyDataBaseProvider dh;
@@ -30,28 +29,49 @@ public class DatabaseProviderImpl {
 
     public DatabaseProviderImpl(Context context){
         cntx = context;
-        dh = new MyDataBaseProvider(cntx,"MARKET_PLACE",null,2);
+        dh = new MyDataBaseProvider(cntx,"MARKET_PLACE",null,VERSION);
     }
 
 
     public void addRooms(Room room){
+        if(room.getBlockId() == -1) {
+            return;
+        }
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("_id",room.getId());
         contentValues.put(NUMBER_COLUMN,room.getNumber());
         contentValues.put(WATER_COLUMN,room.getWater());
         contentValues.put(FREE_COLUMN,room.getFree());
         contentValues.put(PRICE_COLUMN,room.getPrice());
-        contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlock_id());
+        contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlockId());
         contentValues.put(DATE,room.getDate());
-        db.insert(ROOMS_TABLE_NAME,null,contentValues);
+
+        if(db.insert(ROOMS_TABLE_NAME,null,contentValues) == -1){
+            contentValues = new ContentValues();
+            contentValues.put(NUMBER_COLUMN,room.getNumber());
+            contentValues.put(WATER_COLUMN,room.getWater());
+            contentValues.put(FREE_COLUMN,room.getFree());
+            contentValues.put(PRICE_COLUMN,room.getPrice());
+            contentValues.put(BLOCK_ID_IN_ROOMS,room.getBlockId());
+            contentValues.put(DATE,room.getDate());
+            db.insert(ROOMS_TABLE_NAME,null,contentValues);
+        }
+
+
         db.close();
     }
 
     public void addBlocks(Block block){
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("_id",block.getId());
         contentValues.put(NAME_COLUMN_IN_BLOCK,block.getName());
-        db.insert(BLOCK_TABLE_NAME,null,contentValues);
+        if(db.insert(BLOCK_TABLE_NAME,null,contentValues) == -1){
+            contentValues = new ContentValues();
+            contentValues.put(NAME_COLUMN_IN_BLOCK,block.getName());
+            db.insert(BLOCK_TABLE_NAME,null,contentValues);
+        }
         db.close();
     }
 
@@ -64,7 +84,9 @@ public class DatabaseProviderImpl {
             int nameIndex = c.getColumnIndex(NAME_COLUMN_IN_BLOCK);
 
             do {
-                Block block = new Block(c.getInt(idIndex), c.getString(nameIndex));
+                Block block = new Block();
+                block.setId(c.getInt(idIndex));
+                block.setName(c.getString(nameIndex));
                 arr.add(block);
             } while (c.moveToNext());
         } else {
@@ -87,7 +109,9 @@ public class DatabaseProviderImpl {
             int nameIndex = c.getColumnIndex(NAME_COLUMN_IN_BLOCK);
 
             do {
-                Block block = new Block(c.getInt(idIndex), c.getString(nameIndex));
+                Block block = new Block();
+                block.setId(c.getInt(idIndex));
+                block.setName(c.getString(nameIndex));
                 arr.add(block);
             } while (c.moveToNext());
         } else {
@@ -115,8 +139,14 @@ public class DatabaseProviderImpl {
             int date_index = c.getColumnIndex(DATE);
 
             do {
-                Room room = new Room(c.getInt(idIndex),c.getInt(number_index),c.getInt(waterIndex),c.getInt(freeIndex)
-                        ,c.getInt(priceIndex),c.getInt(block_idIndex),c.getString(date_index));
+                Room room = new Room();
+                room.setId(c.getInt(idIndex));
+                room.setBlockId(c.getInt(block_idIndex));
+                room.setNumber(c.getInt(number_index));
+                room.setPrice(c.getInt(priceIndex));
+                room.setFree(c.getInt(freeIndex));
+                room.setWater(c.getInt(waterIndex));
+                room.setDate(c.getString(date_index));
                 arr.add(room);
 
             } while (c.moveToNext());
@@ -136,7 +166,7 @@ public class DatabaseProviderImpl {
         Cursor c = db.query(ROOMS_TABLE_NAME,null,null,null,null,null,null);
         if (c.moveToFirst()) {
             int idIndex = c.getColumnIndex("_id");
-            int numberIndex = c.getColumnIndex(NUMBER_COLUMN);
+            int number_index = c.getColumnIndex(NUMBER_COLUMN);
             int waterIndex = c.getColumnIndex(WATER_COLUMN);
             int freeIndex = c.getColumnIndex(FREE_COLUMN);
             int priceIndex = c.getColumnIndex(PRICE_COLUMN);
@@ -144,9 +174,14 @@ public class DatabaseProviderImpl {
             int date_index = c.getColumnIndex(DATE);
 
             do {
-                Room room = new Room(c.getInt(idIndex),c.getInt(numberIndex), c.getInt(waterIndex),
-                        c.getInt(freeIndex),c.getInt(priceIndex),c.getInt(block_idIndex),
-                        c.getString(date_index));
+                Room room = new Room();
+                room.setId(c.getInt(idIndex));
+                room.setBlockId(c.getInt(block_idIndex));
+                room.setNumber(c.getInt(number_index));
+                room.setPrice(c.getInt(priceIndex));
+                room.setFree(c.getInt(freeIndex));
+                room.setWater(c.getInt(waterIndex));
+                room.setDate(c.getString(date_index));
                 arr.add(room);
 
 
@@ -162,7 +197,7 @@ public class DatabaseProviderImpl {
     }
 
 
-    public void deleteRooms(){
+    private void deleteRooms(){
         SQLiteDatabase db = dh.getWritableDatabase();
         db.delete(ROOMS_TABLE_NAME,null,null);
         db.close();}

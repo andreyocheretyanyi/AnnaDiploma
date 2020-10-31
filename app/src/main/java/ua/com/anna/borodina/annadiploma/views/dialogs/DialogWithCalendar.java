@@ -4,22 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CalendarView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import ua.com.anna.borodina.annadiploma.R;
-import ua.com.anna.borodina.annadiploma.model.DatabaseProviderImpl;
 import ua.com.anna.borodina.annadiploma.views.fragments.BaseFragment;
-import ua.com.anna.borodina.annadiploma.views.fragments.MapFragment;
 
 
 public class DialogWithCalendar extends DialogFragment implements CalendarView.OnDateChangeListener {
@@ -34,7 +29,7 @@ public class DialogWithCalendar extends DialogFragment implements CalendarView.O
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.item_dialog_with_calendar, container, false);
         calendarView = (CalendarView) v.findViewById(R.id.calendar);
-        if(currDate != null) {
+        if (currDate != null) {
             calendarView.setDate(currDate);
         }
         calendarView.setOnDateChangeListener(this);
@@ -42,12 +37,11 @@ public class DialogWithCalendar extends DialogFragment implements CalendarView.O
     }
 
 
-
-    public void setDate(long date){
+    public void setDate(long date) {
         currDate = date;
     }
 
-    public static Long convertDate(String date){
+    public static Long convertDate(String date) {
         SimpleDateFormat f = new SimpleDateFormat("dd.M.yyyy");
         long milliseconds;
         try {
@@ -82,11 +76,11 @@ public class DialogWithCalendar extends DialogFragment implements CalendarView.O
         return selectedDate;
     }
 
-    public void setSelectedDate(String date){
+    public void setSelectedDate(String date) {
         selectedDate = date;
     }
 
-    public void bindParent(BaseFragment baseFragment){
+    public void bindParent(BaseFragment baseFragment) {
         parent = baseFragment;
     }
 

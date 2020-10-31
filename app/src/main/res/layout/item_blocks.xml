@@ -39,9 +39,10 @@
 
         <Button
             android:padding="7dp"
+            android:layout_margin="3dp"
             style="@style/CustomButton"
             android:textSize="@dimen/text_size_in_block_list_for_rooms"
-            android:text="Удалить блок"
+            android:text="@string/delete_block"
             android:id="@+id/button_delete_block"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
@@ -54,7 +55,7 @@
     <Button
         android:layout_margin="10dp"
         style="@style/CustomButton"
-      android:text="Список комнат"
+      android:text="@string/room_list"
       android:id="@+id/button_detail"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>

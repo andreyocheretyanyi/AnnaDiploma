@@ -31,7 +31,7 @@
       style="@style/textViewInMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Карта"
+      android:text="@string/map"
       tools:layout_constraintBottom_creator="1"
       android:layout_marginBottom="0dp"/>
   </LinearLayout>
@@ -55,7 +55,7 @@
       style="@style/textViewInMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Здания и комнаты"
+      android:text="@string/rooms"
       tools:layout_editor_absoluteY="0dp"
       tools:layout_editor_absoluteX="8dp"/>
   </LinearLayout>
@@ -79,7 +79,7 @@
       style="@style/textViewInMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Редактор базы данных"/>
+      android:text="@string/refactor_database"/>
   </LinearLayout>
 
   <LinearLayout
@@ -101,7 +101,7 @@
       style="@style/textViewInMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Общая информация"
+      android:text="@string/information"
 />
   </LinearLayout>
 
@@ -124,7 +124,7 @@
       style="@style/textViewInMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Выход"/>
+      android:text="@string/exit"/>
   </LinearLayout>
 
 
